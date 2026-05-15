@@ -1,5 +1,7 @@
 # Zenzele Smart Market Project Specification
 
+***NOTE: This is a guide. It has been AI edited. Help refine it by prunning irrelevant ideas. Diagrams will be audited and redrawn.
+
 ## Global Open-Source Cardano Entrepreneur Marketplace
 
 **Project name:** Zenzele Smart Market  
