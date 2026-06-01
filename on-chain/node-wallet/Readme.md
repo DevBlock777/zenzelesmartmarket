@@ -14,8 +14,8 @@ Génère un nouveau wallet Cardano.
 **Retourne un objet avec les champs**
 ```js
 {
-  "privateKey",
-  "walletAddress"
+  privateKey,
+  walletAddress
 }
 ```
 
@@ -35,7 +35,7 @@ Mint un nouveau NFT sur la blockchain Cardano.
 **Retourne le hash de la transaction ou txHash**
 ```js
 {
-  "txHash"
+  txHash
 }
 ```
 
