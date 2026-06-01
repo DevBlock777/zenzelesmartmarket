@@ -11,11 +11,11 @@ Génère un nouveau wallet Cardano.
 
 **Body** : Aucun
 
-**Réponse**
-```json
+**Retourne un objet avec les champs**
+```js
 {
-  "privateKey": "ed25519_sk1...",
-  "walletAddress": "addr1..."
+  "privateKey",
+  "walletAddress"
 }
 ```
 
@@ -24,7 +24,7 @@ Génère un nouveau wallet Cardano.
 ### POST `/mint`
 Mint un nouveau NFT sur la blockchain Cardano.
 
-**Body (JSON)**
+**Body (JSON) à fournir lors de la requête**
 
 | Champ         | Type   | Requis | Description            |
 |---------------|--------|--------|------------------------|
@@ -32,10 +32,10 @@ Mint un nouveau NFT sur la blockchain Cardano.
 | `assetName`   | string | ✅     | Nom du NFT             |
 | `description` | string | ✅     | Description du NFT     |
 
-**Réponse**
-```json
+**Retourne le hash de la transaction ou txHash**
+```js
 {
-  "txHash": "abc123..."
+  "txHash"
 }
 ```
 
