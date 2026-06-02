@@ -1,17 +1,19 @@
 # Zenle Cardano API
 
-Base URL : `https://zenle-cardano-api.vercel.app`
+**Base URL :** `https://zenle-cardano-api.vercel.app`
 
 ---
 
-## Endpoints
+## POST `/wallet`
 
-### POST `/wallet`
 Génère un nouveau wallet Cardano.
 
-**Body** : Aucun
+### Body
 
-**Retourne un objet avec les champs**
+Aucun.
+
+### Retourne
+
 ```js
 {
   privateKey,
@@ -21,18 +23,20 @@ Génère un nouveau wallet Cardano.
 
 ---
 
-### POST `/mint`
+## POST `/mint`
+
 Mint un nouveau NFT sur la blockchain Cardano.
 
-**Body (JSON) à fournir lors de la requête**
+### Body (JSON)
 
-| Champ         | Type   | Requis | Description            |
-|---------------|--------|--------|------------------------|
-| `privateKey`  | string | ✅     | Clé privée du wallet   |
-| `assetName`   | string | ✅     | Nom du NFT             |
-| `description` | string | ✅     | Description du NFT     |
+| Champ       | Type   | Requis | Description          |
+| ----------- | ------ | ------ | -------------------- |
+| privateKey  | string | ✅      | Clé privée du wallet |
+| assetName   | string | ✅      | Nom du NFT           |
+| description | string | ✅      | Description du NFT   |
 
-**Retourne le hash de la transaction ou txHash**
+### Retourne
+
 ```js
 {
   txHash
@@ -41,5 +45,28 @@ Mint un nouveau NFT sur la blockchain Cardano.
 
 ---
 
-### GET `/`
+## POST `/donate`
+
+Envoie des ADA d'un compte blockchain vers un autre.
+
+### Body (JSON)
+
+| Champ            | Type   | Requis | Description                          |
+| ---------------- | ------ | ------ | ------------------------------------ |
+| senderPrivateKey | string | ✅      | Clé privée du wallet de l'expéditeur |
+| receiverAddress  | string | ✅      | Adresse blockchain du destinataire   |
+| amount           | number | ✅      | Montant d'ADA à envoyer              |
+
+### Retourne
+
+```js
+{
+  txHash
+}
+```
+
+---
+
+## GET `/`
+
 Vérifie que l'API est en ligne.

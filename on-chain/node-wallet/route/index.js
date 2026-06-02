@@ -1,6 +1,6 @@
 import Router from "express"
 import { generateWallet } from "../helpers/wallet_generator.js"
-import {mintNft} from "../helpers/nft.js"
+import {mintNft,donate} from "../helpers/helper.js"
 const router = Router()
 
 /**
@@ -30,9 +30,25 @@ router.post("/mint", async (req, res) => {
         res.status(200).send({ txHash })
     } catch (err) {
         console.error("Error minting NFT:", err);
-        res.status(500).send({ error: err })
+        res.status(500).send({ error: "Error minting NFT" })
     }
     
     })
+
+/**
+ * @route POST /donate
+ * @desc Donate ADA to another address
+ * @access Public
+ */
+router.post("/donate",async (req, res) =>{
+    try{
+        const {senderPrivateKey, receiverAddress, amount} = req.body
+        const txHash = await donate(senderPrivateKey, receiverAddress, amount)
+        res.status(200).send({ txHash })
+    }catch(err){
+        console.error("Error donating:", err);
+        res.status(500).send({ error: "Error donating" })
+    }
+})
 
 export default router

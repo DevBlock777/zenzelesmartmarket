@@ -10,6 +10,10 @@ const mintingPolicy = {
  
 const policyId = mintingPolicyToId(mintingPolicy);
 
+async function getWalletAddressFromPrivateKey(privateKey){
+  
+return (await makeWalletFromPrivateKey(lucid, "Preprod", privateKey).address())
+}
 /**
  * 
  * @param {*} privateKey clé privée de l'utilisateur
@@ -18,8 +22,8 @@ const policyId = mintingPolicyToId(mintingPolicy);
  * @returns 
  */
 export async function mintNft(privateKey, assetName, description){
-    const wallet = await makeWalletFromPrivateKey(lucid, "Preprod", privateKey);
-    const walletAddress = await wallet.address()
+    
+    const walletAddress = await getWalletAddressFromPrivateKey(privateKey)  
     lucid.selectWallet.fromPrivateKey(privateKey);
     console.log("Wallet address:", walletAddress);
     const redeemer = Data.to(new Constr(0, [fromText(assetName)]));
@@ -57,12 +61,6 @@ return txHash
     console.error("Error minting NFT:", err);
     throw new Error("Failed to mint NFT: " + err.message) 
 }
-
-
-
-
-
-
 }
 
 // mintNft("ed25519_sk16k5gqqzqdvzchye9ff2w27j96rmc74vgw2clsz8kthu643hzuyyq5mm6dh",
@@ -70,5 +68,28 @@ return txHash
 //     "This is my first NFT minted on Cardano!"
 // )
  
+
+export async function donate(senderPrivateKey, receiverAddress, amount){
+  
+    const senderAddress = await getWalletAddressFromPrivateKey(senderPrivateKey)
+    lucid.selectWallet.fromPrivateKey(senderPrivateKey);
+    console.log("Sender address:", senderAddress);
+    console.log("Receiver address:", receiverAddress);
+    const lovelaceAmount = BigInt(amount) * 1_000_000n; // Convertir ADA en lovelace
+    const tx = await lucid
+  .newTx()
+  .pay.ToAddress(receiverAddress, { lovelace: lovelaceAmount })
+  .complete();
+try{
+const signed = await tx.sign.withWallet().complete();
+const txHash = await signed.submit();
+console.log("✅ Donation successful!");
+console.log("Tx hash:", txHash);
+return txHash
+} catch(err){
+    console.error("Error during donation:", err);
+    throw new Error("Failed to donate: " + err.message) 
+}
+}
 
 
