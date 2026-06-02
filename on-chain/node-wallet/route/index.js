@@ -4,11 +4,11 @@ import {mintNft,donate} from "../helpers/helper.js"
 const router = Router()
 
 /**
- * @route POST /wallet
+ * @route POST /api/wallet
  * @desc Generate a new wallet
  * @access Public
  */
-router.post("/wallet", async (req, res) => {
+router.post("/api/wallet", async (req, res) => {
     try{
 const { privateKey, walletAddress } = await generateWallet()
     res.status(200).send({ privateKey, walletAddress })
@@ -19,11 +19,11 @@ const { privateKey, walletAddress } = await generateWallet()
 })
 
 /**
- * @route POST /mint
+ * @route POST /api/mint
  * @desc Mint a new NFT
  * @access Public
  */
-router.post("/mint", async (req, res) => {
+router.post("/api/mint", async (req, res) => {
     try {
         const {privateKey, assetName, description} = req.body
         const txHash = await mintNft(privateKey, assetName, description)
@@ -36,11 +36,11 @@ router.post("/mint", async (req, res) => {
     })
 
 /**
- * @route POST /donate
+ * @route POST /api/donate
  * @desc Donate ADA to another address
  * @access Public
  */
-router.post("/donate",async (req, res) =>{
+router.post("/api/donate",async (req, res) =>{
     try{
         const {senderPrivateKey, receiverAddress, amount} = req.body
         const txHash = await donate(senderPrivateKey, receiverAddress, amount)
