@@ -4,6 +4,8 @@
 
 **Zenzele Smart Market** is an open-source, web-based entrepreneur marketplace built on the secure and scalable **Cardano blockchain**. The word **Zenzele** means **“be self-reliant”**, and the project is designed to help unemployed people, small business owners, freelancers, creators, students, artisans, and everyday hustlers from **any country** promote themselves, find support, receive funding, request training, and grow real economic activity. 
 
+[Google Hussle Academy](https://www.itweb.co.za/article/google-opens-hustle-academy-2026-registration/kLgB17ezVOaM59N4)
+
 The platform is not only for Africa. It must work for entrepreneurs in South Africa, Zimbabwe, Nigeria, Kenya, India, Brazil, the United States, the United Kingdom, Europe, Asia, and any other country where people need a simple way to promote their work and build income. Because of this, Zenzele Smart Market must support multiple languages. The first version can begin with English, isiZulu, isiXhosa, Sesotho, Setswana, Afrikaans, and Swahili, but the design must allow more languages to be added later without rebuilding the whole system.
 
 Zenzele Smart Market will allow a user to sign up, log in, create a profile, describe their business or hustle, record an audio pitch, add soft background music, create an entrepreneur NFT, request donations, request training, receive followers, and share their profile on WhatsApp, TikTok, Facebook, Instagram, Telegram, and X. The goal is to make the app simple enough for a normal person with little technical knowledge to use, while still giving developers enough technical depth to build secure, high-quality Cardano features.
