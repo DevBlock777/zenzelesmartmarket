@@ -5,6 +5,7 @@
 
 // 2. Connexion à la base de données
 require_once '../app/config/db.php'; // Ajustez le chemin selon votre structure
+require_once 'header/username.php';
 
 // 3. Valeurs par défaut
 $profile = [

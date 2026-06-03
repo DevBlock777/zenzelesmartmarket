@@ -1,3 +1,7 @@
+<?php 
+require_once 'header/username.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -124,6 +128,15 @@
   }
   .icon-btn:hover { color: var(--text); border-color: var(--accent); }
   .icon-btn svg { width: 15px; height: 15px; }
+
+   /* Bouton voir */
+  .edit-profile-btn {
+    position: absolute; top: 32px; right: 32px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    transition: background .2s;
+  }
+  .edit-profile-btn:hover { background: #d98c52; }
 
   /* ── CONTENT ── */
   .content { padding: 24px 28px 60px; }
@@ -325,6 +338,7 @@
     .form-card { padding: 24px 18px; }
     .content { padding: 16px 12px 40px; }
     .audio-controls { flex-direction: column; align-items: flex-start; }
+    .edit-profile-btn { position: static; margin-top: 10px; width: 100%; text-align: center; }
   }
 </style>
 </head>
@@ -389,7 +403,7 @@
   <div class="sidebar-user">
     <div class="avatar-sm">AK</div>
     <div class="user-info">
-      <span class="user-name">Aminata Koné</span>
+      <span class="user-name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span></span>
       <span class="user-role">Apprenante Pro</span>
     </div>
   </div>
@@ -400,7 +414,7 @@
 
   <!-- Topbar -->
   <header class="topbar">
-    <div class="topbar-greeting">Bonjour, Aminata <span>👋</span></div>
+    <div class="topbar-greeting">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span></div>
     <div class="topbar-actions">
       <span class="topbar-date">Mardi, 26 mai 2026</span>
       <div class="icon-btn">
@@ -420,13 +434,25 @@
 
     <!-- Hero -->
     <div class="hero-card">
-      <h2>Profil utilisateur</h2>
-      <p>Bienvenue sur votre profil, Mazalaza !</p>
+      <h2>Donation requests</h2>
+      <p>Bienvenue sur votre profil,
+        <?php 
+          if (isset($_SESSION['username'])) {
+              echo htmlspecialchars($_SESSION['username']);
+          } else {
+              echo 'Invité';
+          }
+      ?> !
+      </p>
+      <div class="profile-header-card">
+        <a href="requestsdonation.php" class="edit-profile-btn" >View donations requests</a>
+      </div>
     </div>
+    
     <!-- Form Card -->
     <form id="donationsForm" onsubmit="return false;" enctype="multipart/form-data">
     <div class="form-card">
-      <h3 class="form-title">Donation</h3>
+      <h3 class="form-title">Donation requests</h3>
 
       <div class="form-group">
         <label>Amount of donation </label>

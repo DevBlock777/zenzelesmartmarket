@@ -1,3 +1,7 @@
+<?php 
+require_once 'header/username.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -77,7 +81,7 @@
     <div class="sidebar-user">
       <div class="sidebar-avatar">AK</div>
       <div class="sidebar-user-info">
-        <div class="sidebar-user-name">Aminata Koné</div>
+        <div class="sidebar-user-name"> <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> </div>
         <div class="sidebar-user-role">Apprenante Pro</div>
       </div>
       <div class="sidebar-online"></div>
@@ -92,7 +96,7 @@
 
     <!-- Topbar -->
     <div class="topbar">
-      <div class="topbar-title">Bonjour, Aminata 👋</div>
+      <div class="topbar-title">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> 👋</div>
       <div class="topbar-date">Mardi, 26 mai 2026</div>
       <div class="topbar-actions">
         <div class="topbar-btn notif"><i class="ti ti-bell"></i></div>
