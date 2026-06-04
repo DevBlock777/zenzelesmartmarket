@@ -51,7 +51,28 @@
             // Écouter la soumission du formulaire classique
             document.getElementById('loginForm').addEventListener('submit', async (e) => {
                 e.preventDefault();
-                await ZenzeleAuthExtended.submitStandardLogin();
+                // await ZenzeleAuthExtended.submitStandardLogin();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;    
+                const apiResponse = await fetch('../../api/auth/login.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                })
+                .then(response => response.json())
+                .then(apiData => {
+                    console.log(apiData); // Affiche la réponse de l'API pour le débogage
+                    if (apiData.success) {
+                        alert(apiData.message);
+                        window.location.href = '../acceuil.php';
+                    } else {
+                        alert('Erreur : ' + apiData.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors de la connexion :', error);
+                    alert('Une erreur est survenue lors de la connexion. Veuillez réessayer plus tard.');
+                });
             });
 
             // Écouter le bouton Coxy Wallet

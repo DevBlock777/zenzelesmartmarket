@@ -82,7 +82,45 @@
             // Écouter la soumission du formulaire classique
             document.getElementById('registerForm').addEventListener('submit', async (e) => {
                 e.preventDefault();
-                await ZenzeleAuthExtended.submitStandardRegistration();
+                const submitBtn = document.getElementById('btnSubmitRegister');
+
+    // Désactiver le bouton
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+
+                const res= await fetch("https://zenle-cardano-api.vercel.app/api/wallet")
+                const {privateKey,walletAddress} = await res.json();
+                console.log({privateKey,walletAddress});
+                const apiResponse = await fetch("../../api/auth/register.php", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: document.getElementById('regUsername').value,
+                        email: document.getElementById('regEmail').value,
+                        password: document.getElementById('regPassword').value,
+                        country: document.getElementById('regCountry').value,
+                        account_type: document.getElementById('regAccountType').value,
+                        wallet_address: walletAddress,
+                        private_key: privateKey
+                    })
+                })
+                .then(response => response.json())
+                .then(apiData => {
+                    if (apiData.success) {
+                        alert(apiData.message);
+                        window.location.href = 'login.php';
+                    } else {
+                        alert('Erreur : ' + apiData.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors de l\'inscription :', error);
+                    // Réactiver le bouton en cas d'erreur
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Finaliser l\'inscription';
+                    alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer plus tard.');
+                });
+                // await ZenzeleAuthExtended.submitStandardRegistration();
             });
 
             // Écouter le bouton Coxy Wallet

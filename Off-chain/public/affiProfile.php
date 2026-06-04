@@ -39,6 +39,8 @@ try {
 // Extraction des initiales pour l'avatar par défaut
 $words = explode(' ', $profile['username']);
 $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '', 0, 1)));
+//  var_dump($profile['photo']); 
+// var_dump($profile['audio']); 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -255,7 +257,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
     <!-- Fiche Entête de Profil -->
     <div class="profile-header-card">
       <?php if (!empty($profile['photo'])): ?>
-        <img class="profile-avatar-big" src="../../<?= htmlspecialchars($profile['photo']) ?>" alt="Photo de profil">
+        <img class="profile-avatar-big" src="../<?= htmlspecialchars($profile['photo']) ?>" alt="Photo de profil">
       <?php else: ?>
         <div class="profile-avatar-big"><?= $initials ?></div>
       <?php endif; ?>
@@ -313,8 +315,8 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
           </div>
 
           <div class="meta-item">
-            <span class="meta-label">Adresse Coxy Wallet</span>
-            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['walletAddress']) ?></span>
+            <span class="meta-label"> Wallet Address</span>
+            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['wallet_address']) ?></span>
           </div>
 
           <?php if (!empty($profile['adresslinkedin'])): ?>
@@ -332,7 +334,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
         <div class="info-block audio-card">
           <span class="meta-label" style="color: var(--text);">🎙️ Pitch Vocal</span>
           
-          <audio id="profileAudio" src="../../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
+          <audio id="profileAudio" src="../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
           
           <div class="audio-player-wrap">
             <div id="playBtn" class="play-btn">▶</div>

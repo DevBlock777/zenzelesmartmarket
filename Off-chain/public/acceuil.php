@@ -53,7 +53,7 @@ require_once 'header/username.php';
 
       <div class="sidebar-section">Marché</div>
 
-      <a href="nfts.php" class="sidebar-item">
+      <a href="nft.php" class="sidebar-item">
         <i class="ti ti-photo"></i>
         NFTs
       </a>
@@ -97,6 +97,7 @@ require_once 'header/username.php';
     <!-- Topbar -->
     <div class="topbar">
       <div class="topbar-title">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> 👋</div>
+      <div class="topbar-title"> <?php echo isset($_SESSION['wallet_address']) ? $_SESSION['wallet_address'] : 'No wallet address'; ?> 👋</div>
       <div class="topbar-date">Mardi, 26 mai 2026</div>
       <div class="topbar-actions">
         <div class="topbar-btn notif"><i class="ti ti-bell"></i></div>

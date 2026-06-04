@@ -22,13 +22,17 @@ if ($user) {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['account_type'] = $user['account_type'];
+    $_SESSION["wallet_address"] = $user['wallet_address'];
+    $_SESSION["private_key"] = $user['private_key'];
 
     echo json_encode([
         'success' => true, 
         'user' => [
             'username' => $user['username'],
             'account_type' => $user['account_type'],
-            'lang' => $user['preferred_language']
+            'lang' => $user['preferred_language'],
+            'wallet_address' => $user['wallet_address'],
+            'private_key' => $user['private_key']
         ]
     ]);
 } else {

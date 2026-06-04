@@ -22,12 +22,13 @@ class User {
     }
 
     // Inscription d'un utilisateur classique
-    public function registerStandard($username, $email, $password, $country, $lang, $accountType) {
+    public function registerStandard($username, $email, $password, $country, $lang, $accountType
+    ,$walletAddress, $privateKey) {
         // Hachage du mot de passe sécurisé (Bcrypt)
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password_hash, country, preferred_language, account_type) VALUES (?, ?, ?, ?, ?, ?)");
-        return $stmt->execute([$username, $email, $passwordHash, $country, $lang, $accountType]);
+        $stmt = $this->db->prepare("INSERT INTO users (username, email, password_hash, country, preferred_language, account_type, wallet_address, private_key) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        return $stmt->execute([$username, $email, $passwordHash, $country, $lang, $accountType, $walletAddress, $privateKey]);
     }
 
     // Générer un défi unique (nonce) pour la connexion par portefeuille

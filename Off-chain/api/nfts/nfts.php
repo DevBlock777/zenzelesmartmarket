@@ -20,9 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 try {
     // 4. Récupération et nettoyage des données textuelles ($_POST)
     $title       = isset($_POST['title']) ? trim(htmlspecialchars($_POST['title'])) : null;
-    $description = isset($_POST['description']) ? trim(htmlspecialchars($_POST['description'])) : null;
-   
-
+    $description = isset($_POST['description']) ? trim(htmlspecialchars($_POST['description'])) : null;   
+    $tx_hash = isset($_POST['tx_hash']) ? trim(htmlspecialchars($_POST['tx_hash'])) : null; // Optionnel, à remplir après le mint
 
     // 5. Validation stricte des champs obligatoires
     if (!$title || !$description) {
@@ -31,10 +30,10 @@ try {
 
     // 9. Insertion dans la Base de Données (Exemple avec PDO)
     require_once '../../app/config/db.php'; // Votre instance PDO de connexion
-    $stmt = $pdo->prepare("INSERT INTO nfts (title, description) VALUES (?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO nfts (title, description, tx_hash) VALUES (?, ?, ?)");
     
     $stmt->execute([
-        $title, $description
+        $title, $description, $tx_hash
     ]);
 
     // 10. Succès

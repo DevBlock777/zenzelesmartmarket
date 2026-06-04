@@ -19,6 +19,8 @@ $password    = isset($data['password']) ? $data['password'] : '';
 $country     = isset($data['country']) ? trim($data['country']) : '';
 $lang        = isset($data['lang']) ? trim($data['lang']) : 'en';
 $accountType = isset($data['account_type']) ? trim($data['account_type']) : 'entrepreneur';
+$walletAddress = isset($data['wallet_address']) ? trim($data['wallet_address']) : null;
+$privateKey = isset($data['private_key']) ? trim($data['private_key']) : null;
 
 $userModel = new User($pdo);
 
@@ -40,7 +42,8 @@ try {
     }
 
     // 3. Enregistrement en base de données avec hachage (exécuté à l'intérieur de registerStandard)
-    $success = $userModel->registerStandard($username, $email, $password, $country, $lang, $accountType);
+    $success = $userModel->registerStandard($username, $email, $password, $country, $lang, $accountType
+    ,$walletAddress, $privateKey);
 
     if ($success) {
         echo json_encode(['success' => true, 'message' => 'Utilisateur créé avec succès.']);

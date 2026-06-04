@@ -515,10 +515,7 @@ require_once 'header/username.php';
         <textarea id="competence" placeholder="Décrivez vos compétences et qualifications"></textarea>
       </div>
 
-      <div class="form-group">
-        <label>Adresse Coxy wallet</label>
-        <input type="text" id="walletAddress" placeholder="Adresse de votre portefeuille Coxy">
-      </div>
+      
 
       <div class="form-group">
         <label>Profil linkedin</label>
@@ -548,7 +545,7 @@ require_once 'header/username.php';
         <p>Idéal si vous préférez parler plutôt qu'écrire. Enregistrez un message d'une minute maximum.</p>
 
         <div class="audio-controls">
-          <button class="record-btn" id="recordBtn">
+          <button type="button" class="record-btn" id="recordBtn">
             <span class="rec-dot"></span>
             <span id="recLabel">Enregistrer ma voix</span>
             <span id="recTimer" style="display:none;margin-left:6px;font-size:12px;opacity:.8"></span>
@@ -579,9 +576,14 @@ require_once 'header/username.php';
         </div>
 
         <div style="margin-top:12px">
-          <button id="downloadBtn" class="record-btn" style="display:none;background:rgba(200,121,65,.15);border-color:rgba(200,121,65,.4);color:var(--accent)">
-            ⬇ Télécharger l'enregistrement
-          </button>
+          <button
+    type="button"
+    id="downloadBtn"
+    class="record-btn"
+    style="display:none;background:rgba(200,121,65,.15);border-color:rgba(200,121,65,.4);color:var(--accent)"
+>
+    ⬇ Télécharger l'enregistrement
+</button>
         </div>
       </div>
 
@@ -596,10 +598,45 @@ require_once 'header/username.php';
   document.addEventListener('DOMContentLoaded', async () => {
     // await i18n.init();
     // Écouter la soumission du formulaire 
-    document.getElementById('profilesForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      await zenzeleProfiles.submitProfiles(audioBlob);
+   document.getElementById('profilesForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('username', document.getElementById('username').value);
+    formData.append('entrepriseName', document.getElementById('entrepriseName').value);
+    formData.append('regCountry', document.getElementById('regCountry').value);
+    formData.append('city', document.getElementById('city').value);
+    formData.append('langue', document.getElementById('langue').value);
+    formData.append('activity', document.getElementById('activity').value);
+    formData.append('biographie', document.getElementById('biographie').value);
+    formData.append('entrepriseDesc', document.getElementById('entrepriseDesc').value);
+    formData.append('competence', document.getElementById('competence').value);
+    formData.append('adresslinkedin', document.getElementById('adresslinkedin').value);
+
+    const photo = document.getElementById('photo-upload').files[0];
+
+    if (photo) {
+        formData.append('photo', photo);
+    }
+
+    if (audioBlob) {
+        formData.append('audio', audioBlob, 'presentation.webm');
+    }
+
+    const response = await fetch('../api/profiles/profiles.php', {
+        method: 'POST',
+        body: formData
     });
+
+    const result = await response.json();
+    if(result.success) {
+        alert('Profil créé avec succès !');
+        window.location.href = 'affiProfile.php';
+    } else {
+        alert(result.message);
+    }
+});
 
    // ── File input label ──
     document.getElementById('photo-upload').addEventListener('change', function() {

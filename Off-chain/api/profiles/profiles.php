@@ -1,4 +1,6 @@
 <?php
+session_start();
+// var_dump($_SESSION);
 // 1. Configuration des en-têtes pour répondre en JSON
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *'); // À restreindre en production pour la sécurité
@@ -21,7 +23,7 @@ try {
     // 4. Récupération et nettoyage des données textuelles ($_POST)
     $username       = isset($_POST['username']) ? trim(htmlspecialchars($_POST['username'])) : null;
     $entrepriseName = isset($_POST['entrepriseName']) ? trim(htmlspecialchars($_POST['entrepriseName'])) : null;
-    $country        = isset($_POST['country']) ? trim(htmlspecialchars($_POST['country'])) : null;
+    $country        = isset($_POST['regCountry']) ? trim(htmlspecialchars($_POST['regCountry'])) : null;
     $city           = isset($_POST['city']) ? trim(htmlspecialchars($_POST['city'])) : null;
     $langue         = isset($_POST['langue']) ? trim(htmlspecialchars($_POST['langue'])) : null;
     $biographie     = isset($_POST['biographie']) ? trim(htmlspecialchars($_POST['biographie'])) : null;
@@ -30,9 +32,11 @@ try {
     $competence     = isset($_POST['competence']) ? trim(htmlspecialchars($_POST['competence'])) : null;
     $walletAddress  = isset($_POST['walletAddress']) ? trim(htmlspecialchars($_POST['walletAddress'])) : null;
     $adresslinkedin = isset($_POST['adresslinkedin']) ? trim(htmlspecialchars($_POST['adresslinkedin'])) : null;
+    $wallet_address  = isset($_SESSION['wallet_address']) ? trim(htmlspecialchars($_SESSION['wallet_address'])) : null;
+    $private_key  = isset($_SESSION['private_key']) ? trim(htmlspecialchars($_SESSION['private_key'])) : null;
 
     // 5. Validation stricte des champs obligatoires
-    if (!$username || !$entrepriseName || !$country || !$city || !$walletAddress) {
+    if (!$username || !$entrepriseName || !$country || !$city ) {
         throw new Exception("Champs obligatoires manquants.");
     }
 
@@ -93,12 +97,12 @@ try {
 
     // 9. Insertion dans la Base de Données (Exemple avec PDO)
     require_once '../../app/config/db.php'; // Votre instance PDO de connexion
-    $stmt = $pdo->prepare("INSERT INTO profiles (username, entrepriseName, country, city, langue, biographie, activity, entrepriseDesc, competence, walletAddress, adresslinkedin, photo, audio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO profiles (username, entrepriseName, country, city, langue, biographie, activity, entrepriseDesc, competence, wallet_address,private_key, adresslinkedin, photo, audio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     $stmt->execute([
         $username, $entrepriseName, $country, $city, $langue, 
         $biographie, $activity, $entrepriseDesc, $competence, 
-        $walletAddress, $adresslinkedin, $photoPathDb, $audioPathDb
+        $wallet_address, $private_key, $adresslinkedin, $photoPathDb, $audioPathDb
     ]);
 
     // 10. Succès

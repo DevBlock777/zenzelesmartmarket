@@ -2,9 +2,9 @@
 // app/config/db.php
 
 // Définition des paramètres de connexion à la base de données
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root'); // Souvent 'root' en local
-define('DB_PASS', ''); // Souvent '' ou 'root' sur MAMP/XAMPP
+define('DB_HOST', '172.19.160.1');
+define('DB_USER', 'betsa'); // Souvent 'root' en local
+define('DB_PASS', 'rasta'); // Souvent '' ou 'root' sur MAMP/XAMPP
 define('DB_NAME', 'zenzelesmartmarket');
 define('DB_CHARSET', 'utf8mb4');
 
@@ -21,6 +21,7 @@ try {
 
     // Initialisation de l'instance unique de connexion
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+    // echo "Connexion à la base de données réussie.";
 
 } catch (PDOException $e) {
     // En cas d'échec de connexion, on arrête le script et on affiche un message propre

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'header/username.php';
 ?>
 
@@ -446,12 +447,13 @@ require_once 'header/username.php';
         <label>Image du nft</label>
         <input type="file" id="image" accept="image/*">
       </div>-->
-      <button type="submit" class="submit-btn">Submit →</button>
+      <button type="submit" id="submit-btn" class="submit-btn">Submit →</button>
       </div>
     </div>
   </form>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/nfts.js"></script>
 <script>
@@ -460,7 +462,84 @@ require_once 'header/username.php';
     // Écouter la soumission du formulaire 
     document.getElementById('nftForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      await zenzeleNFTs.submitNFT(title, description);
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating...';
+      const privateKey = <?= json_encode($_SESSION['private_key'] ?? null) ?>;
+      // console.log('Private Key:', privateKey); // Debug: Affiche la clé privée dans la console
+      
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const assetName = title
+      await fetch("https://zenle-cardano-api.vercel.app/api/mint",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          privateKey,
+          assetName,
+          description
+        })
+      })
+      .then(response => response.json())
+      .then(async (data) => {
+        if(data.success) {
+          // alert('NFT créé avec succès !');
+          const {txHash} = data;
+          await fetch('../api/nfts/nfts.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+              title,
+              description,
+              tx_hash: txHash // Envoi du hash de la transaction pour référence future
+            })
+          });
+          Swal.fire({
+  icon: 'success',
+  title: 'NFT créé avec succès 🎉',
+  html: `
+    <p>Votre transaction a été confirmée.</p>
+    <p style="margin-top:10px;">
+      <strong>Tx Hash :</strong><br>
+      <code style="
+        display:block;
+        margin-top:6px;
+        word-break: break-all;
+        background:#1f1f21;
+        padding:8px;
+        border-radius:8px;
+        color:#c87941;
+      ">${txHash}</code>
+    </p>
+    <a href="https://preprod.cexplorer.io/tx/${txHash}" target="_blank"
+       style="
+         display:inline-block;
+         margin-top:12px;
+         color:#fff;
+         background:#c87941;
+         padding:10px 14px;
+         border-radius:8px;
+         text-decoration:none;
+         font-weight:600;
+       ">
+      Voir sur Explorer ↗
+    </a>
+  `,
+  confirmButtonText: 'OK'
+});
+        } else {
+          alert('Erreur lors de la création du NFT : ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit →';
+        alert('Une erreur est survenue lors de la création du NFT.');
+      });
+      // await zenzeleNFTs.submitNFT(title, description);
     });
 });
 </script>
