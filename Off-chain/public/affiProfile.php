@@ -255,7 +255,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
     <!-- Fiche Entête de Profil -->
     <div class="profile-header-card">
       <?php if (!empty($profile['photo'])): ?>
-      <img class="profile-avatar-big" src="../../<?= htmlspecialchars($profile['photo']) ?>" alt="Profile photo">
+      <img class="profile-avatar-big" src="../<?= htmlspecialchars($profile['photo']) ?>" alt="Profile photo">
       <?php else: ?>
         <div class="profile-avatar-big"><?= $initials ?></div>
       <?php endif; ?>
@@ -314,7 +314,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
 
           <div class="meta-item">
             <span class="meta-label">Coxy Wallet Address</span>
-            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['walletAddress']) ?></span>
+            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['wallet_address']) ?></span>
           </div>
 
           <?php if (!empty($profile['adresslinkedin'])): ?>
@@ -332,7 +332,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
         <div class="info-block audio-card">
           <span class="meta-label" style="color: var(--text);">🎙️ Audio Pitch</span>
           
-          <audio id="profileAudio" src="../../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
+          <audio id="profileAudio" src="../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
           
           <div class="audio-player-wrap">
             <div id="playBtn" class="play-btn">▶</div>

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'header/username.php';
 ?>
 
@@ -487,17 +488,13 @@ require_once 'header/username.php';
       <div class="form-group">
         <label>Industry</label>
         <select id="activity">
-          <option value="" disabled selected>Select your industry</option>
-          <option>Agriculture & Food</option>
-          <option>Crafts & Fashion</option>
-          <option>Commerce & Distribution</option>
-          <option>Technology & Digital</option>
-          <option>Health & Wellness</option>
-          <option>Education & Training</option>
-          <option>Finance & Savings</option>
-          <option>Transport & Logistics</option>
-          <option>Other</option>
-        </select>
+  <option value="agriculture">Agriculture & Food</option>
+  <option value="entrepreneur">Crafts & Fashion</option>
+  <option value="technology">Technology & Digital</option>
+  <option value="health">Health & Wellness</option>
+  <option value="education">Education & Training</option>
+  <option value="other">Other</option>
+</select>
       </div>
 
       <div class="form-group">

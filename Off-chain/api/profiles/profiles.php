@@ -30,7 +30,6 @@ try {
     $activity       = isset($_POST['activity']) ? trim(htmlspecialchars($_POST['activity'])) : null;
     $entrepriseDesc = isset($_POST['entrepriseDesc']) ? trim(htmlspecialchars($_POST['entrepriseDesc'])) : null;
     $competence     = isset($_POST['competence']) ? trim(htmlspecialchars($_POST['competence'])) : null;
-    $walletAddress  = isset($_POST['walletAddress']) ? trim(htmlspecialchars($_POST['walletAddress'])) : null;
     $adresslinkedin = isset($_POST['adresslinkedin']) ? trim(htmlspecialchars($_POST['adresslinkedin'])) : null;
     $wallet_address  = isset($_SESSION['wallet_address']) ? trim(htmlspecialchars($_SESSION['wallet_address'])) : null;
     $private_key  = isset($_SESSION['private_key']) ? trim(htmlspecialchars($_SESSION['private_key'])) : null;
@@ -51,7 +50,7 @@ try {
 
     $photoPathDb = null;
     $audioPathDb = null;
-
+    
     // 7. Traitement du fichier Image (Photo)
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
         $photoFile = $_FILES['photo'];

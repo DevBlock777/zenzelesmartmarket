@@ -2,9 +2,9 @@
 // app/config/db.php
 
 // Définition des paramètres de connexion à la base de données
-define('DB_HOST', '172.19.160.1');
-define('DB_USER', 'betsa'); // Souvent 'root' en local
-define('DB_PASS', 'rasta'); // Souvent '' ou 'root' sur MAMP/XAMPP
+define('DB_HOST', '127.0.0.1');
+define('DB_USER', 'root'); // Souvent 'root' en local
+define('DB_PASS', ''); // Souvent '' ou 'root' sur MAMP/XAMPP
 define('DB_NAME', 'zenzelesmartmarket');
 define('DB_CHARSET', 'utf8mb4');
 
