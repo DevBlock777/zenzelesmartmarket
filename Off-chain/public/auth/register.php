@@ -25,12 +25,12 @@
             <form id="registerForm" onsubmit="return false;">
                 <div class="form-group">
                     <label for="regUsername" data-i18n="label_username">Nom d'utilisateur</label>
-                    <input type="text" id="regUsername" required placeholder="Ex: amina_crafts">
+                    <input type="text" id="regUsername" required placeholder="e.g. amina_crafts">
                 </div>
 
                 <div class="form-group">
                     <label for="regEmail" data-i18n="label_email">Adresse E-mail</label>
-                    <input type="email" id="regEmail" required placeholder="Ex: amina@example.com">
+                    <input type="email" id="regEmail" required placeholder="e.g. amina@example.com">
                 </div>
  
                 <div class="form-group">

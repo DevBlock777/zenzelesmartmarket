@@ -9,12 +9,12 @@ header('Access-Control-Allow-Methods: POST');
 // 2. Initialisation de la réponse par défaut
 $response = [
     'success' => false,
-    'message' => 'Une erreur inconnue est survenue.'
+    'message' => 'An unknown error occurred.'
 ];
 
 // 3. Vérification de la méthode de requête
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    $response['message'] = 'Méthode non autorisée. Seul le POST est accepté.';
+    $response['message'] = 'Method not allowed. Only POST is accepted.';
     echo json_encode($response);
     exit;
 }
@@ -37,7 +37,7 @@ try {
 
     // 5. Validation stricte des champs obligatoires
     if (!$username || !$entrepriseName || !$country || !$city ) {
-        throw new Exception("Champs obligatoires manquants.");
+        throw new Exception("Missing required fields.");
     }
 
     // 6. Configuration des dossiers de stockage pour les fichiers
@@ -60,7 +60,7 @@ try {
         // Validation de l'extension de l'image
         $allowedPhotoExts = ['jpg', 'jpeg', 'png', 'webp'];
         if (!in_array($photoExt, $allowedPhotoExts)) {
-            throw new Exception("Format d'image non valide (JPG, PNG, WEBP uniquement).");
+            throw new Exception("Invalid image format (JPG, PNG, WEBP only).");
         }
 
         // Génération d'un nom unique pour éviter les écrasements
@@ -70,7 +70,7 @@ try {
         if (move_uploaded_file($photoFile['tmp_name'], $photoTarget)) {
             $photoPathDb = 'uploads/photos/' . $photoName; // Chemin à enregistrer en BDD
         } else {
-            throw new Exception("Impossible d'enregistrer l'image sur le serveur.");
+            throw new Exception("Unable to save image on server.");
         }
     }
 
@@ -82,7 +82,7 @@ try {
         // Validation de l'extension audio générée par le MediaRecorder
         $allowedAudioExts = ['webm', 'ogg', 'mp3', 'wav'];
         if (!in_array($audioExt, $allowedAudioExts)) {
-            throw new Exception("Format audio non supporté.");
+            throw new Exception("Unsupported audio format.");
         }
 
         $audioName   = uniqid('audio_', true) . '.' . $audioExt;
@@ -91,7 +91,7 @@ try {
         if (move_uploaded_file($audioFile['tmp_name'], $audioTarget)) {
             $audioPathDb = 'uploads/audios/' . $audioName; // Chemin à enregistrer en BDD
         } else {
-            throw new Exception("Impossible d'enregistrer le fichier audio sur le serveur.");
+            throw new Exception("Unable to save audio file on server.");
         }
     }
 
@@ -107,7 +107,7 @@ try {
 
     // 10. Succès
     $response['success'] = true;
-    $response['message'] = 'Profil créé avec succès !';
+    $response['message'] = 'Profile created successfully!';
 
 } catch (Exception $e) {
     // Gestion des erreurs

@@ -61,8 +61,8 @@ const ZenzeleAudio = {
             }, 60000);
 
         } catch (err) {
-            console.error("Accès au microphone refusé ou non supporté :", err);
-            alert("Impossible d'accéder au microphone. Veuillez vérifier les permissions de votre navigateur.");
+            console.error("Microphone access denied or not supported:", err);
+            alert("Unable to access the microphone. Please check your browser permissions.");
         }
     },
 
@@ -93,7 +93,7 @@ const ZenzeleAudio = {
             if (window.i18n && window.i18n.translations['btn_record_stop']) {
                 recordBtnText.textContent = window.i18n.translations['btn_record_stop'];
             } else {
-                recordBtnText.textContent = "Arrêter l'enregistrement";
+                recordBtnText.textContent = "Stop recording";
             }
         } else {
             recordBtn.classList.remove('btn-primary');
@@ -103,7 +103,7 @@ const ZenzeleAudio = {
             if (window.i18n && window.i18n.translations['btn_record_start']) {
                 recordBtnText.textContent = window.i18n.translations['btn_record_start'];
             } else {
-                recordBtnText.textContent = "Enregistrer ma voix";
+                recordBtnText.textContent = "Record my voice";
             }
         }
     },

@@ -23,11 +23,11 @@ try {
 }
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZenZele – Demandes de Dons</title>
+<title>ZenZele – Donation Requests</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -308,11 +308,11 @@ try {
     </a>
     <a class="nav-item" href="donations.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      donations
+      Donations
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-      Certificats
+      Certificates
     </a>
   </div>
 
@@ -328,7 +328,7 @@ try {
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Communauty
+      Community
     </a>
   </div>
 
@@ -336,7 +336,7 @@ try {
     <div class="nav-label">Account</div>
     <a class="nav-item" href="profile2.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Profil
+      Profile
     </a>
     <a class="nav-item" href="auth/logout.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M20 12h2M2 12h2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
@@ -348,9 +348,9 @@ try {
     <div class="avatar-sm">AK</div>
     <div class="user-info">
       <span class="user-name">
-        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span>
+        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> ! <span>👋</span>
       </span>
-      <span class="user-role">Apprenante Pro</span>
+      <span class="user-role">Pro Learner</span>
     </div>
   </div>
 </aside>
@@ -360,9 +360,9 @@ try {
 
   <!-- Topbar -->
   <header class="topbar">
-    <div class="topbar-greeting">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> <span>👋</span></div>
+    <div class="topbar-greeting">Hello, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> <span>👋</span></div>
     <div class="topbar-actions">
-      <span class="topbar-date">Mardi, 26 mai 2026</span>
+      <span class="topbar-date">Tuesday, 26 May 2026</span>
       <div class="icon-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       </div>
@@ -397,10 +397,9 @@ try {
             <div>
               <div class="don-header">
                 <div class="amount-badge">
-                  <?= htmlspecialchars(number_format($don['amount'], 2)) ?> ADA
                 </div>
                 <div class="date-badge">
-                  ⏳ Limite : <?= htmlspecialchars($don['dateLimit'] !== '0000-00-00' ? date('d/m/Y', strtotime($don['dateLimit'])) : 'Aucune') ?>
+                  ⏳ Deadline: <?= htmlspecialchars($don['dateLimit'] !== '0000-00-00' ? date('d/m/Y', strtotime($don['dateLimit'])) : 'None') ?>
                 </div>
               </div>
 
@@ -412,8 +411,8 @@ try {
 
             <div class="don-footer">
               <div>
-                <span class="benefit-lbl">Statut</span>
-                <span class="benefit-val" style="color: var(--success);">● Actif</span>
+                <span class="benefit-lbl">Status</span>
+                <span class="benefit-val" style="color: var(--success);">● Active</span>
               </div>
               <button class="btn-participer" onclick="participerDon(<?= $don['id'] ?>)">Support</button>
             </div>
@@ -423,7 +422,7 @@ try {
       </div>
     <?php else: ?>
       <div class="empty-box">
-        <p>Aucune demande de don n'a été publiée pour le moment.</p>
+        <p>No donation requests have been posted yet.</p>
       </div>
     <?php endif; ?>
 

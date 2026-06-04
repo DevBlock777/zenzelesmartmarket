@@ -25,7 +25,7 @@
             <form id="loginForm" onsubmit="return false;">
                 <div class="form-group">
                     <label for="loginEmail" data-i18n="label_email">Adresse E-mail</label>
-                    <input type="email" id="loginEmail" required placeholder="Ex: amina@example.com">
+                    <input type="email" id="loginEmail" required placeholder="e.g. amina@example.com">
                 </div>
 
                 <div class="form-group">

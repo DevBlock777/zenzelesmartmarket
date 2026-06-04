@@ -9,19 +9,19 @@ require_once 'header/username.php';
 
 // 3. Valeurs par défaut
 $profile = [
-    'username' => 'Non défini',
-    'entreprise_name' => 'Non défini',
-    'country' => 'Non défini',
-    'city' => 'Non défini',
-    'langue' => 'fr',
-    'activity' => 'Non défini',
-    'biographie' => 'Aucune biographie rédigée pour le moment.',
-    'entreprise_desc' => 'Aucune description d\'entreprise.',
-    'competence' => 'Non spécifiées.',
-    'wallet_address' => 'Non renseigné',
-    'adresslinkedin' => '',
-    'photo' => '',
-    'audio' => ''
+  'username' => 'Not set',
+  'entreprise_name' => 'Not set',
+  'country' => 'Not set',
+  'city' => 'Not set',
+  'langue' => 'fr',
+  'activity' => 'Not set',
+  'biographie' => 'No biography written yet.',
+  'entreprise_desc' => 'No company description.',
+  'competence' => 'Not specified.',
+  'wallet_address' => 'Not provided',
+  'adresslinkedin' => '',
+  'photo' => '',
+  'audio' => ''
 ];
 
 try {
@@ -39,15 +39,13 @@ try {
 // Extraction des initiales pour l'avatar par défaut
 $words = explode(' ', $profile['username']);
 $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '', 0, 1)));
-//  var_dump($profile['photo']); 
-// var_dump($profile['audio']); 
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZenZele – Mon Profil Entrepreneurial</title>
+<title>ZenZele – My Entrepreneurial Profile</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -209,10 +207,10 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
       </a>
       <a href="certificats.html" class="sidebar-item">
         <i class="ti ti-certificate"></i>
-        Certificats
+        Certificates
       </a>
 
-      <div class="sidebar-section">Marché</div>
+      <div class="sidebar-section">Market</div>
 
       <a href="nfts.php" class="sidebar-item">
         <i class="ti ti-photo"></i>
@@ -224,14 +222,14 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
       </a>
       <a href="communaute.html" class="sidebar-item">
         <i class="ti ti-social"></i>
-        Communauty
+        Community
       </a>
 
-      <div class="sidebar-section">Compte</div>
+      <div class="sidebar-section">Account</div>
 
       <a href="profile2.php" class="sidebar-item">
         <i class="ti ti-user"></i>
-        Profil
+        Profile
       </a>
       <a href="auth/logout.php" class="sidebar-item">
         <i class="ti ti-settings"></i>
@@ -243,7 +241,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
       <div class="sidebar-avatar">AK</div>
       <div class="sidebar-user-info">
         <div class="sidebar-user-name">Aminata Koné</div>
-        <div class="sidebar-user-role">Apprenante Pro</div>
+        <div class="sidebar-user-role">Pro Learner</div>
       </div>
       <div class="sidebar-online"></div>
     </div>
@@ -257,21 +255,21 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
     <!-- Fiche Entête de Profil -->
     <div class="profile-header-card">
       <?php if (!empty($profile['photo'])): ?>
-        <img class="profile-avatar-big" src="../<?= htmlspecialchars($profile['photo']) ?>" alt="Photo de profil">
+      <img class="profile-avatar-big" src="../../<?= htmlspecialchars($profile['photo']) ?>" alt="Profile photo">
       <?php else: ?>
         <div class="profile-avatar-big"><?= $initials ?></div>
       <?php endif; ?>
 
       <div class="profile-title-info">
-        <span class="company-badge"><?= htmlspecialchars($profile['entrepriseName'] ?: 'Entreprise Individuelle') ?></span>
+        <span class="company-badge"><?= htmlspecialchars($profile['entrepriseName'] ?: 'Individual Business') ?></span>
         <h1><?= htmlspecialchars($profile['username']) ?></h1>
         <div class="location-txt">
           <span>📍</span> <?= htmlspecialchars($profile['city']) ?>, <?= htmlspecialchars($profile['country']) ?>
         </div>
       </div>
 
-      <!-- Lien de retour vers le formulaire d'édition -->
-      <a href="profile2.php" class="edit-profile-btn">Modifier le profil</a>
+      <!-- Link back to the edit form -->
+      <a href="profile2.php" class="edit-profile-btn">Edit Profile</a>
     </div>
 
     <!-- Grille de Contenu -->
@@ -281,17 +279,17 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
       <div class="main-info-column">
         
         <div class="info-block">
-          <h3>Biographie</h3>
+          <h3>Biography</h3>
           <p><?= htmlspecialchars($profile['biographie']) ?></p>
         </div>
 
         <div class="info-block">
-          <h3>À propos de l'entreprise</h3>
+          <h3>About the Company</h3>
           <p><?= htmlspecialchars($profile['entrepriseDesc']) ?></p>
         </div>
 
         <div class="info-block">
-          <h3>Compétences & Qualifications</h3>
+          <h3>Skills & Qualifications</h3>
           <p><?= htmlspecialchars($profile['competence']) ?></p>
         </div>
 
@@ -302,28 +300,28 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
         
         <!-- Fiche détails -->
         <div class="info-block">
-          <h3>Détails clés</h3>
+          <h3>Key Details</h3>
           
           <div class="meta-item">
-            <span class="meta-label">Secteur d'activité</span>
+            <span class="meta-label">Industry</span>
             <span class="meta-value" style="color: var(--accent);"><?= htmlspecialchars($profile['activity']) ?></span>
           </div>
 
           <div class="meta-item">
-            <span class="meta-label">Langue de communication</span>
+            <span class="meta-label">Communication Language</span>
             <span class="meta-value"><?= strtoupper(htmlspecialchars($profile['langue'])) ?></span>
           </div>
 
           <div class="meta-item">
-            <span class="meta-label"> Wallet Address</span>
-            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['wallet_address']) ?></span>
+            <span class="meta-label">Coxy Wallet Address</span>
+            <span class="meta-value" style="font-family: monospace; font-size:12px; word-break: break-all;"><?= htmlspecialchars($profile['walletAddress']) ?></span>
           </div>
 
           <?php if (!empty($profile['adresslinkedin'])): ?>
           <div class="meta-item" style="margin-top: 20px;">
-            <a href="<?= htmlspecialchars($profile['adresslinkedin']) ?>" target="_blank" class="linkedin-link">
+              <a href="<?= htmlspecialchars($profile['adresslinkedin']) ?>" target="_blank" class="linkedin-link">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              Profil LinkedIn
+                LinkedIn Profile
             </a>
           </div>
           <?php endif; ?>
@@ -332,9 +330,9 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
         <!-- Fiche Présentation Audio (S'il y a un audio en BDD) -->
         <?php if (!empty($profile['audio'])): ?>
         <div class="info-block audio-card">
-          <span class="meta-label" style="color: var(--text);">🎙️ Pitch Vocal</span>
+          <span class="meta-label" style="color: var(--text);">🎙️ Audio Pitch</span>
           
-          <audio id="profileAudio" src="../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
+          <audio id="profileAudio" src="../../<?= htmlspecialchars($profile['audio']) ?>" preload="auto"></audio>
           
           <div class="audio-player-wrap">
             <div id="playBtn" class="play-btn">▶</div>

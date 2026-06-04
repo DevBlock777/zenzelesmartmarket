@@ -5,5 +5,5 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['username'])) {
-   $username = $_SESSION['username'] = 'Invité'; // Valeur par défaut si l'utilisateur n'est pas connecté
+    $username = $_SESSION['username'] = 'Guest'; // Default if the user is not logged in
 }

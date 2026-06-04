@@ -3,11 +3,11 @@ require_once 'header/username.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZenZele – Profil Entrepreneurial</title>
+<title>ZenZele – Entrepreneurial Profile</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -365,11 +365,11 @@ require_once 'header/username.php';
     </a>
     <a class="nav-item" href="donations.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      donations
+      Donations
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-      Certificats
+      Certificates
     </a>
   </div>
 
@@ -385,7 +385,7 @@ require_once 'header/username.php';
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Communauty
+      Community
     </a>
   </div>
 
@@ -393,7 +393,7 @@ require_once 'header/username.php';
     <div class="nav-label">Account</div>
     <a class="nav-item" href="profile2.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Profil
+      Profile
     </a>
     <a class="nav-item" href="auth/logout.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M20 12h2M2 12h2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41"/></svg>
@@ -405,9 +405,9 @@ require_once 'header/username.php';
     <div class="avatar-sm">AK</div>
     <div class="user-info">
       <span class="user-name">
-        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span>
+        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> ! <span>👋</span>
       </span>
-      <span class="user-role">Apprenante Pro</span>
+      <span class="user-role">Pro Learner</span>
     </div>
   </div>
 </aside>
@@ -417,9 +417,9 @@ require_once 'header/username.php';
 
   <!-- Topbar -->
   <header class="topbar">
-    <div class="topbar-greeting">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> <span>👋</span></div>
+    <div class="topbar-greeting">Hello, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> <span>👋</span></div>
     <div class="topbar-actions">
-      <span class="topbar-date">Mardi, 26 mai 2026</span>
+      <span class="topbar-date">Tuesday, 26 May 2026</span>
       <div class="icon-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       </div>
@@ -438,42 +438,42 @@ require_once 'header/username.php';
 
     <!-- Hero -->
     <div class="hero-card">
-      <h2>Profil utilisateur</h2>
-      <p>Bienvenue sur votre profil, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> !</p>
+      <h2>User Profile</h2>
+      <p>Welcome to your profile, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?>!</p>
       <div class="profile-header-card">
-      <a href="affiProfile.php" class="edit-profile-btn" >Voir mon profil</a>
+      <a href="affiProfile.php" class="edit-profile-btn" >View my profile</a>
     </div>
     </div>
     
     <!-- Form Card -->
     <form id="profilesForm" onsubmit="return false;" enctype="multipart/form-data">
     <div class="form-card">
-      <h3 class="form-title">Créer votre profil entrepreneurial</h3>
+      <h3 class="form-title">Create your entrepreneurial profile</h3>
 
       <div class="form-group">
-        <label>Votre nom complet </label>
-        <input type="text" id="username" placeholder="Ex: Amina Bakery">
+        <label>Your full name</label>
+        <input type="text" id="username" placeholder="e.g. Amina Bakery">
       </div>
 
       <div class="form-group">
-        <label>Nom de l'entreprise</label>
-        <input type="text" id="entrepriseName" placeholder="Ex: coxygene">
+        <label>Company name</label>
+        <input type="text" id="entrepriseName" placeholder="e.g. coxygene">
       </div>
 
       <div class="form-group">
-        <label>Votre Pays</label>
-        <input type="text" id="regCountry" placeholder="Ex: Burkina Faso">
+        <label>Your country</label>
+        <input type="text" id="regCountry" placeholder="e.g. Burkina Faso">
       </div>
 
       <div class="form-group">
-        <label>Votre Ville et region</label>
-        <input type="text" id="city" placeholder="Ex: Ouagadougou, Kadiogo">
+        <label>Your city and region</label>
+        <input type="text" id="city" placeholder="e.g. Ouagadougou, Kadiogo">
       </div>
 
       <div class="form-group">
-         <label>La langue</label>
+            <label>Language</label>
             <select id="langue">
-              <option value="" disabled selected>Sélectionnez votre langage</option>
+              <option value="" disabled selected>Select your language</option>
               <option value="en">English</option>
               <option value="zu">isiZulu</option>
               <option value="xh">isiXhosa</option>
@@ -485,51 +485,51 @@ require_once 'header/username.php';
       </div>
 
       <div class="form-group">
-        <label>Secteur d'activité</label>
+        <label>Industry</label>
         <select id="activity">
-          <option value="" disabled selected>Sélectionnez votre domaine</option>
-          <option>Agriculture & Alimentation</option>
-          <option>Artisanat & Mode</option>
+          <option value="" disabled selected>Select your industry</option>
+          <option>Agriculture & Food</option>
+          <option>Crafts & Fashion</option>
           <option>Commerce & Distribution</option>
-          <option>Technologie & Numérique</option>
-          <option>Santé & Bien-être</option>
-          <option>Éducation & Formation</option>
-          <option>Finance & Épargne</option>
-          <option>Transport & Logistique</option>
-          <option>Autre</option>
+          <option>Technology & Digital</option>
+          <option>Health & Wellness</option>
+          <option>Education & Training</option>
+          <option>Finance & Savings</option>
+          <option>Transport & Logistics</option>
+          <option>Other</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>Votre biographie (courte description)</label>
-        <textarea id="biographie" placeholder="Racontez ce que vous faites et ce dont vous êtes fier(e)…"></textarea>
+        <label>Your biography (short description)</label>
+        <textarea id="biographie" placeholder="Tell what you do and what you are proud of…"></textarea>
       </div>
 
        <div class="form-group">
-        <label>Description de votre entreprise (courte description)</label>
-        <textarea id="entrepriseDesc" placeholder="Presenter votre entreprise"></textarea>
+        <label>Company description (short)</label>
+        <textarea id="entrepriseDesc" placeholder="Describe your company"></textarea>
       </div>
 
       <div class="form-group">
-        <label>Competences</label>
-        <textarea id="competence" placeholder="Décrivez vos compétences et qualifications"></textarea>
+        <label>Skills</label>
+        <textarea id="competence" placeholder="Describe your skills and qualifications"></textarea>
       </div>
 
       
 
       <div class="form-group">
-        <label>Profil linkedin</label>
+        <label>LinkedIn profile</label>
         <input type="url" id="adresslinkedin" placeholder="https://example.com/profile">
       </div>
 
       <div class="form-group">
-        <label>Photo de profil <span style="color:var(--muted);font-size:11px;text-transform:none;letter-spacing:0">(optionnel)</span></label>
+        <label>Profile photo <span style="color:var(--muted);font-size:11px;text-transform:none;letter-spacing:0">(optional)</span></label>
         <div class="file-wrapper">
           <button type="button" class="file-btn" onclick="document.getElementById('photo-upload').click()">
-            &#128247; Choisir une image
+            &#128247; Choose an image
           </button>
           <input type="file" id="photo-upload" name="photo" accept="image/*" style="display:none">
-          <span class="file-name" id="photo-name">Aucun fichier sélectionné</span>
+          <span class="file-name" id="photo-name">No file selected</span>
         </div>
         <div id="photo-preview-wrap" style="display:none;margin-top:12px">
           <img id="photo-preview" src="" alt="Aperçu"
@@ -541,23 +541,23 @@ require_once 'header/username.php';
 
       <!-- Audio Section -->
       <div class="audio-section">
-        <label style="text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px">Présentation Vocale Audio</label>
-        <p>Idéal si vous préférez parler plutôt qu'écrire. Enregistrez un message d'une minute maximum.</p>
+        <label style="text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px">Audio Presentation</label>
+        <p>Ideal if you prefer speaking rather than writing. Record a message up to one minute.</p>
 
         <div class="audio-controls">
           <button type="button" class="record-btn" id="recordBtn">
             <span class="rec-dot"></span>
-            <span id="recLabel">Enregistrer ma voix</span>
+            <span id="recLabel">Record my voice</span>
             <span id="recTimer" style="display:none;margin-left:6px;font-size:12px;opacity:.8"></span>
           </button>
 
           <div class="music-select-wrap">
-            <span class="music-label">Ajouter une musique de fond douce :</span>
+            <span class="music-label">Add a soft background track:</span>
             <select id="musicTrack">
-              <option>Aucune musique (Voix seule)</option>
-              <option>Mélodie douce</option>
-              <option>Ambiance nature</option>
-              <option>Piano calme</option>
+              <option>No music (Voice only)</option>
+              <option>Soft melody</option>
+              <option>Nature ambiance</option>
+              <option>Calm piano</option>
             </select>
           </div>
         </div>
@@ -567,7 +567,7 @@ require_once 'header/username.php';
         <audio id="audioPreview" style="display:none"></audio>
 
         <div class="playback-wrap" style="margin-top:10px">
-          <span class="playback-label">Écoutez votre présentation avant de valider :</span>
+          <span class="playback-label">Listen to your presentation before submitting:</span>
           <div class="audio-player">
             <span id="playBtn" class="play-icon" style="cursor:pointer;font-size:13px;user-select:none">▶</span>
             <div class="track-bar"><div class="track-fill" id="trackFill"></div></div>
@@ -575,19 +575,19 @@ require_once 'header/username.php';
           </div>
         </div>
 
-        <div style="margin-top:12px">
-          <button
-    type="button"
-    id="downloadBtn"
-    class="record-btn"
-    style="display:none;background:rgba(200,121,65,.15);border-color:rgba(200,121,65,.4);color:var(--accent)"
->
-    ⬇ Télécharger l'enregistrement
-</button>
+          <div style="margin-top:12px">
+            <button
+        type="button"
+        id="downloadBtn"
+        class="record-btn"
+        style="display:none;background:rgba(200,121,65,.15);border-color:rgba(200,121,65,.4);color:var(--accent)"
+      >
+        ⬇ Download recording
+      </button>
         </div>
       </div>
 
-      <button type="submit" class="submit-btn">Valider mon profil →</button>
+      <button type="submit" class="submit-btn">Submit my profile →</button>
     </div>
   </form>
   </div>
@@ -631,10 +631,10 @@ require_once 'header/username.php';
 
     const result = await response.json();
     if(result.success) {
-        alert('Profil créé avec succès !');
-        window.location.href = 'affiProfile.php';
+      alert('Profile created successfully!');
+      window.location.href = 'affiProfile.php';
     } else {
-        alert(result.message);
+      alert(result.message);
     }
 });
 
@@ -653,7 +653,7 @@ require_once 'header/username.php';
         };
         reader.readAsDataURL(file);
       } else {
-        document.getElementById('photo-name').textContent = 'Aucun fichier sélectionné';
+        document.getElementById('photo-name').textContent = 'No file selected';
         document.getElementById('photo-preview-wrap').style.display = 'none';
       }
     });  
@@ -724,7 +724,7 @@ require_once 'header/username.php';
 
         audioEl.src = audioURL;
         audioEl.load();
-        statusMsg.textContent = '✅ Enregistrement prêt. Écoutez-le ci-dessous.';
+        statusMsg.textContent = '✅ Recording ready. Listen below.';
         statusMsg.style.color = '#3ecf5e';
         downloadBtn.style.display = 'inline-flex';
       };
@@ -733,17 +733,17 @@ require_once 'header/username.php';
       startTimer();
 
       btn.style.background = 'rgba(220,60,60,.35)';
-      recLabel.textContent  = 'Arrêter l\'enregistrement';
+      recLabel.textContent  = 'Stop recording';
       recTimer.style.display = 'inline';
-      statusMsg.textContent  = '🎙️ Enregistrement en cours…';
+      statusMsg.textContent  = '🎙️ Recording in progress…';
       statusMsg.style.color  = '#f55';
       downloadBtn.style.display = 'none';
 
     } catch (err) {
       if (err.name === 'NotAllowedError') {
-        statusMsg.textContent = '⚠️ Accès au microphone refusé. Autorisez-le dans les paramètres de votre navigateur.';
+        statusMsg.textContent = '⚠️ Microphone access denied. Allow it in your browser settings.';
       } else {
-        statusMsg.textContent = '⚠️ Impossible d\'accéder au microphone : ' + err.message;
+        statusMsg.textContent = '⚠️ Unable to access the microphone: ' + err.message;
       }
       statusMsg.style.color = '#f55';
     }

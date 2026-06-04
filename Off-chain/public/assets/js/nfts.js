@@ -20,16 +20,15 @@ const zenzeleNFTs = {
             const result = await response.json();
 
             if (result.success) {
-                alert("Succès : " + result.message);
-                // Redirection ou mise à jour de l'interface
-                window.location.href = 'acceuil.php'; // Redirige vers le acceuil après succès
+                alert("Success: " + result.message);
+                window.location.href = 'acceuil.php';
             } else {
-                alert("Erreur de validation : " + result.message);
+                alert("Validation error: " + result.message);
             }
 
         } catch (error) {
-            console.error("Erreur technique :", error);
-            alert("Une erreur réseau est survenue lors de l'enregistrement.");
+            console.error("Technical error:", error);
+                alert("A network error occurred while saving.");
         }
     }
 };

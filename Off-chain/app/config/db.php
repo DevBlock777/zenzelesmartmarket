@@ -26,5 +26,5 @@ try {
 } catch (PDOException $e) {
     // En cas d'échec de connexion, on arrête le script et on affiche un message propre
     // (En production, il faudra masquer le message détaillé $e->getMessage() pour des raisons de sécurité)
-    die("Erreur critique de connexion à la base de données : " . $e->getMessage());
+    die("Critical database connection error: " . $e->getMessage());
 }

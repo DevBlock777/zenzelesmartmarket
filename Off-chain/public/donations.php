@@ -3,11 +3,11 @@ require_once 'header/username.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZenZele – Profil Entrepreneurial</title>
+<title>ZenZele – Donations</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -359,7 +359,7 @@ require_once 'header/username.php';
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Formations
+      Trainings
       <span class="badge">3</span>
     </a>
     <a class="nav-item" href="donations.php">
@@ -368,7 +368,7 @@ require_once 'header/username.php';
     </a>
     <a class="nav-item" href="auth/logout.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-      Certificats
+      Certificates
     </a>
   </div>
 
@@ -384,7 +384,7 @@ require_once 'header/username.php';
     </a>
     <a class="nav-item" href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Communauty
+      Community
     </a>
   </div>
 
@@ -403,8 +403,8 @@ require_once 'header/username.php';
   <div class="sidebar-user">
     <div class="avatar-sm">AK</div>
     <div class="user-info">
-      <span class="user-name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span></span>
-      <span class="user-role">Apprenante Pro</span>
+      <span class="user-name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> ! <span>👋</span></span>
+      <span class="user-role">Pro Learner</span>
     </div>
   </div>
 </aside>
@@ -414,9 +414,9 @@ require_once 'header/username.php';
 
   <!-- Topbar -->
   <header class="topbar">
-    <div class="topbar-greeting">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> ! <span>👋</span></div>
+    <div class="topbar-greeting">Hello, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> ! <span>👋</span></div>
     <div class="topbar-actions">
-      <span class="topbar-date">Mardi, 26 mai 2026</span>
+      <span class="topbar-date">Tuesday, 26 May 2026</span>
       <div class="icon-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       </div>
@@ -435,43 +435,43 @@ require_once 'header/username.php';
     <!-- Hero -->
     <div class="hero-card">
       <h2>Donation requests</h2>
-      <p>Bienvenue sur votre profil,
+        <p>Welcome to your profile,
         <?php 
           if (isset($_SESSION['username'])) {
-              echo htmlspecialchars($_SESSION['username']);
+            echo htmlspecialchars($_SESSION['username']);
           } else {
-              echo 'Invité';
+            echo 'Guest';
           }
-      ?> !
-      </p>
+        ?>!
+        </p>
       <div class="profile-header-card">
-        <a href="requestsdonation.php" class="edit-profile-btn" >View donations requests</a>
+        <a href="requestsdonation.php" class="edit-profile-btn" >View donation requests</a>
       </div>
     </div>
     
     <!-- Form Card -->
     <form id="donationsForm" onsubmit="return false;" enctype="multipart/form-data">
     <div class="form-card">
-      <h3 class="form-title">Donation requests</h3>
+      <h3 class="form-title">Donation Requests</h3>
 
       <div class="form-group">
         <label>Amount of donation </label>
-        <input type="number" id="amount" placeholder="Ex: 10000 ada">
+        <input type="number" id="amount" placeholder="e.g. 10000 ADA">
       </div>
 
       <div class="form-group">
-        <label>Motif</label>
-        <input type="text" id="motif" placeholder="Ex: Un don pour ... ">
+        <label>Purpose</label>
+        <input type="text" id="motif" placeholder="e.g. A donation for...">
       </div>
 
       <div class="form-group">
-        <label>DateLimit</label>
-        <input type="date" id="dateLimit" placeholder="Ex: 2026-12-31">
+        <label>Deadline</label>
+        <input type="date" id="dateLimit" placeholder="e.g. 2026-12-31">
       </div>
 
       <div class="form-group">
         <label>Benefit of the donation</label>
-        <input type="text" id="benefit" placeholder="Ex: Ce don permettra de ... ">
+        <input type="text" id="benefit" placeholder="e.g. This donation will allow...">
       </div>
       <button type="submit" class="submit-btn">Submit →</button>
       </div>
