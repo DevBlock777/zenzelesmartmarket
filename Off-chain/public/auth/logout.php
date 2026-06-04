@@ -1,6 +1,5 @@
 <?php
 // api/auth/logout.php
-header('Content-Type: application/json');
 session_start();
 
 // Si la variable de session de l'utilisateur n'existe pas, on le redirige immédiatement

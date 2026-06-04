@@ -196,7 +196,7 @@ $initials = strtoupper((substr($words[0] ?? 'Z', 0, 1)) . (substr($words[1] ?? '
         <i class="ti ti-layout-dashboard"></i>
         Dashboard
       </a>
-      <a href="formations.html" class="sidebar-item">
+      <a href="training.php" class="sidebar-item">
         <i class="ti ti-school"></i>
         Trainings
         <span class="sidebar-badge">3</span>

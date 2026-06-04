@@ -37,7 +37,7 @@ require_once 'header/username.php';
         <i class="ti ti-layout-dashboard"></i>
         Dashboard
       </a>
-      <a href="formation.php" class="sidebar-item">
+      <a href="training.php" class="sidebar-item">
         <i class="ti ti-school"></i>
         Trainings
         <span class="sidebar-badge">3</span>

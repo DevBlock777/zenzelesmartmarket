@@ -347,7 +347,7 @@ require_once 'header/username.php';
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       Dashboard
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" href="training.php">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       Trainings
       <span class="badge">3</span>
@@ -393,7 +393,7 @@ require_once 'header/username.php';
   <div class="sidebar-user">
     <div class="avatar-sm">AK</div>
     <div class="user-info">
-      <span class="user-name"> <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> <span>👋</span><</span>
+      <span class="user-name"> <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> <span>👋</span></span>
       <span class="user-role">Apprenante Pro</span>
     </div>
   </div>
@@ -424,42 +424,83 @@ require_once 'header/username.php';
 
     <!-- Hero -->
     <div class="hero-card">
-      <h2>Profil utilisateur</h2>
-      <p>Bienvenue sur votre profil, Mazalaza !</p>
+      <h2>Request training</h2>
+      <p>Bienvenue sur votre profil, <?php 
+          if (isset($_SESSION['username'])) {
+              echo htmlspecialchars($_SESSION['username']);
+          } else {
+              echo 'Invité';
+          }
+      ?> !</p>
     </div>
     <!-- Form Card -->
     <form id="donsForm" onsubmit="return false;" enctype="multipart/form-data">
     <div class="form-card">
-      <h3 class="form-title">Faire une formation</h3>
+      <h3 class="form-title">Training</h3>
 
       <div class="form-group">
-        <label>Montant du don </label>
-        <input type="number" id="montant" placeholder="Ex: 10000 ada">
+        <label>Category</label>
+        <select id="category">
+          <option value="" disabled selected>Sélect the category</option>
+          <option>Agriculture & Alimentation</option>
+          <option>Artisanat & Mode</option>
+          <option>Commerce & Distribution</option>
+          <option>Technologie & Numérique</option>
+          <option>Santé & Bien-être</option>
+          <option>Éducation & Formation</option>
+          <option>Finance & Épargne</option>
+          <option>Transport & Logistique</option>
+          <option>Autre</option>
+        </select>
       </div>
 
       <div class="form-group">
-        <label>Motif</label>
-        <input type="text" id="motif" placeholder="Ex: Un don pour ... ">
+        <label>Description</label>
+        <input type="text" id="description" placeholder="Ex: Description ">
       </div>
 
       <div class="form-group">
-        <label>DateLimite</label>
-        <input type="date" id="dateLimite" placeholder="Ex: 2026-12-31">
+        <label>Your study level</label>
+        <textarea id="level" placeholder="Décrivez vos compétences et qualifications"></textarea>
       </div>
 
       <div class="form-group">
-        <label>Bienfait du fond</label>
-        <input type="text" id="bienfait" placeholder="Ex: Ce don permettra de ... ">
+         <label>Language</label>
+            <select id="langue">
+              <option value="" disabled selected>Select your language</option>
+              <option value="en">English</option>
+              <option value="zu">isiZulu</option>
+              <option value="xh">isiXhosa</option>
+              <option value="st">Sesotho</option>
+              <option value="tn">Setswana</option>
+              <option value="af">Afrikaans</option>
+              <option value="sw">Swahili</option>
+            </select>
       </div>
-    </div>
-
-      <button type="submit" class="submit-btn">Valider le don →</button>
+      <div class="form-group">
+        <label>Your country</label>
+        <input type="text" id="country" placeholder="Ex: Burkina Faso">
+      </div>
+      <div class="form-group">
+        <label>Fuseau horaire</label>
+        <input type="text" id="fuseau" placeholder="Ex: GMT:00">
+      </div>
+      <div class="form-group">
+         <label>Training mode</label>
+            <select id="langue">
+              <option value="" disabled selected>Select your training mode</option>
+              <option value="en">On-line</option>
+              <option value="zu">Off-line</option>
+            </select>
+      </div>
+      <button type="submit" class="submit-btn">Submit →</button>
+       </div>
     </div>
   </form>
   </div>
 </div>
 <script src="assets/js/i18n.js"></script>
-<script src="assets/js/dons.js"></script>
+<script src="assets/js/Training.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', async () => {
     // await i18n.init();
