@@ -3,7 +3,7 @@ const ZenzeleAuthExtended = {
         try {
             // 1. Vérifier si un portefeuille Cardano est injecté dans le navigateur
             if (!window.cardano || !window.cardano.coxy) {
-                alert("Coxy Wallet n'est pas détecté. Veuillez l'installer.");
+                alert("Coxy Wallet not detected. Please install it.");
                 return;
             }
 
@@ -46,11 +46,11 @@ const ZenzeleAuthExtended = {
                 localStorage.setItem('zenzele_connected', 'true');
                 window.location.reload();
             } else {
-                alert("Échec de la vérification de la signature cryptographique.");
+                alert("Cryptographic signature verification failed.");
             }
 
         } catch (error) {
-            console.error("Erreur d'authentification Wallet :", error);
+            console.error("Wallet authentication error:", error);
         }
     },
 
@@ -59,7 +59,7 @@ const ZenzeleAuthExtended = {
         const password = document.getElementById('loginPassword').value;     
 
         if (!email || !password) {
-            alert("Veuillez entrer votre email et mot de passe.");
+            alert("Please enter your email and password.");
             return;
         }
 
@@ -73,30 +73,30 @@ const ZenzeleAuthExtended = {
             const result = await response.json();
 
             if (result.success) {
-                // Optionnel : stocker le statut de connexion
+                // Optionally store connection status
                 localStorage.setItem('zenzele_connected', 'true');
-                alert("Connexion réussie !");
-                window.location.href = '../../public/acceuil.php'; // Redirection vers la page de d'acceuil
+                alert("Login successful!");
+                window.location.href = '../../public/acceuil.php';
             } else {
-                alert("Échec de la connexion : " + result.message);
+                alert("Login failed: " + result.message);
             }
 
         } catch (error) {
-            console.error("Erreur réseau lors de la connexion :", error);
-            alert("Une erreur est survenue lors de la communication avec le serveur.");
+            console.error("Network error during login:", error);
+            alert("A network error occurred while communicating with the server.");
         }   
     },
 
     // Déconnexion complète
     async logout() {
-        // 1. Nettoyer le serveur
+        // 1. Clear server session
         await fetch('api/auth/logout.php');
-        
-        // 2. Effacer les traces locales du navigateur
+
+        // 2. Clear local traces
         localStorage.removeItem('zenzele_connected');
         sessionStorage.clear();
-        
-        // Redirection ou rafraîchissement
+
+        // Reload page
         window.location.reload();
     },
 
@@ -110,7 +110,7 @@ const ZenzeleAuthExtended = {
 
         // 1. Validation de base côté client (Sécurité de premier niveau)
         if (!username || !email || password.length < 8 || !country) {
-            alert("Veuillez remplir correctement tous les champs requis.");
+            alert("Please fill in all required fields correctly.");
             return;
         }
 
@@ -132,14 +132,14 @@ const ZenzeleAuthExtended = {
             const result = await response.json();
 
             if (result.success) {
-                alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-                window.location.href = 'login.php'; // Redirection vers la page de connexion
+                alert("Registration successful! You can now log in.");
+                window.location.href = 'login.php';
             } else {
-                alert("Échec de l'inscription : " + result.message);
+                alert("Registration failed: " + result.message);
             }
         } catch (error) {
-            console.error("Erreur réseau lors de l'inscription :", error);
-            alert("Une erreur est survenue lors de la communication avec le serveur.");
+            console.error("Network error during registration:", error);
+            alert("A network error occurred while communicating with the server.");
         }
     }
 

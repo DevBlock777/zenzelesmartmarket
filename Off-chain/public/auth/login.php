@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenzele Smart Market - Inscription</title>
+    <title>Zenzele Smart Market - Login</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -12,32 +12,32 @@
 
     <main class="container">
         <div class="auth-box">
-            <h1 data-i18n="login_title">Se connecter à son compte Zenzele</h1>
-            <p class="subtitle" data-i18n="login_subtitle">Rejoignez le marché de l'autonomie et de l'entrepreneuriat</p>
+            <h1 data-i18n="login_title">Log in to your Zenzele account</h1>
+            <p class="subtitle" data-i18n="login_subtitle">Join the marketplace for independence and entrepreneurship</p>
 
             <div class="web3-option">
                 <button type="button" id="btnLoginWallet" class="btn btn-primary w-full">
-                    <span class="icon">💳</span> <span data-i18n="btn_login_coxy">Se connecter avec Coxy Wallet</span>
+                    <span class="icon">💳</span> <span data-i18n="btn_login_coxy">Connect with Coxy Wallet</span>
                 </button>
                 <div class="divider"><span data-i18n="auth_or">OU</span></div>
             </div>
 
             <form id="loginForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="loginEmail" data-i18n="label_email">Adresse E-mail</label>
+                    <label for="loginEmail" data-i18n="label_email">Email address</label>
                     <input type="email" id="loginEmail" required placeholder="e.g. amina@example.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="loginPassword" data-i18n="label_password">Mot de passe</label>
-                    <input type="password" id="loginPassword" required minlength="8" placeholder="8 caractères minimum">
+                    <label for="loginPassword" data-i18n="label_password">Password</label>
+                    <input type="password" id="loginPassword" required minlength="8" placeholder="8 characters minimum">
                 </div>
-                <button type="submit" id="btnSubmitLogin" class="btn btn-secondary w-full" data-i18n="btn_submit_login">Se connecter</button>
+                <button type="submit" id="btnSubmitLogin" class="btn btn-secondary w-full" data-i18n="btn_submit_login">Log in</button>
             </form>
 
             <p class="auth-redirect">
-                <span data-i18n="text_no_account">Pas de compte ?</span> 
-                <a href="register.php" data-i18n="link_register">Inscrivez-vous ici</a>
+                <span data-i18n="text_no_account">Don't have an account?</span> 
+                <a href="register.php" data-i18n="link_register">Register here</a>
             </p>
         </div>
     </main>
@@ -66,12 +66,12 @@
                         alert(apiData.message);
                         window.location.href = '../acceuil.php';
                     } else {
-                        alert('Erreur : ' + apiData.message);
+                        alert('Error: ' + apiData.message);
                     }
                 })
                 .catch(error => {
-                    console.error('Erreur lors de la connexion :', error);
-                    alert('Une erreur est survenue lors de la connexion. Veuillez réessayer plus tard.');
+                    console.error('Login error:', error);
+                    alert('An error occurred while logging in. Please try again later.');
                 });
             });
 

@@ -1,10 +1,10 @@
 // public/assets/js/app.js
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Initialiser les langues
+    // 1. Initialize language system
     await i18n.init();
 
-    // 2. Écouter le changement de langue dans le menu déroulant
+    // 2. Listen for language changes from the selector
     const langSelect = document.getElementById('langSelect');
     if (langSelect) {
         langSelect.addEventListener('change', (e) => {
@@ -16,6 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 3. Initialiser le module d'enregistrement audio
     ZenzeleAudio.init();
-    // Prochaines étapes : Initialisation de Lucid Cardano, requêtes API pour les profils, etc.
-    console.log("Zenzele Smart Market frontend initialisé avec succès.");
+    // Next steps: initialize Lucid/Cardano, fetch profiles from API, etc.
+    console.log("Zenzele Smart Market frontend initialized successfully.");
 });

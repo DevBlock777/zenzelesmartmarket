@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenzele Smart Market - Inscription</title>
+    <title>Zenzele Smart Market - Register</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -12,36 +12,36 @@
 
     <main class="container">
         <div class="auth-box">
-            <h1 data-i18n="register_title">Créer un compte Zenzele</h1>
-            <p class="subtitle" data-i18n="register_subtitle">Rejoignez le marché de l'autonomie et de l'entrepreneuriat</p>
+            <h1 data-i18n="register_title">Create a Zenzele account</h1>
+            <p class="subtitle" data-i18n="register_subtitle">Join the marketplace for independence and entrepreneurship</p>
 
             <div class="web3-option">
                 <button type="button" id="btnRegisterWallet" class="btn btn-primary w-full">
-                    <span class="icon">💳</span> <span data-i18n="btn_register_coxy">S'inscrire avec Coxy Wallet</span>
+                    <span class="icon">💳</span> <span data-i18n="btn_register_coxy">Register with Coxy Wallet</span>
                 </button>
                 <div class="divider"><span data-i18n="auth_or">OU</span></div>
             </div>
 
             <form id="registerForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="regUsername" data-i18n="label_username">Nom d'utilisateur</label>
+                    <label for="regUsername" data-i18n="label_username">Username</label>
                     <input type="text" id="regUsername" required placeholder="e.g. amina_crafts">
                 </div>
 
                 <div class="form-group">
-                    <label for="regEmail" data-i18n="label_email">Adresse E-mail</label>
+                    <label for="regEmail" data-i18n="label_email">Email address</label>
                     <input type="email" id="regEmail" required placeholder="e.g. amina@example.com">
                 </div>
  
                 <div class="form-group">
-                    <label for="regPassword" data-i18n="label_password">Mot de passe</label>
-                    <input type="password" id="regPassword" required minlength="8" placeholder="8 caractères minimum">
+                    <label for="regPassword" data-i18n="label_password">Password</label>
+                    <input type="password" id="regPassword" required minlength="8" placeholder="8 characters minimum">
                 </div>
 
                 <div class="form-group">
-                    <label for="regCountry" data-i18n="label_country">Pays de résidence</label>
+                    <label for="regCountry" data-i18n="label_country">Country of residence</label>
                     <select id="regCountry" required>
-                        <option value="" disabled selected data-i18n="select_country_default">Sélectionnez votre pays</option>
+                        <option value="" disabled selected data-i18n="select_country_default">Select your country</option>
                         <option value="ZAF">South Africa</option>
                         <option value="ZWE">Zimbabwe</option>
                         <option value="NGA">Nigeria</option>
@@ -54,21 +54,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="regAccountType" data-i18n="label_account_type">Type de profil</label>
+                    <label for="regAccountType" data-i18n="label_account_type">Profile type</label>
                     <select id="regAccountType" required>
-                        <option value="entrepreneur" data-i18n="type_entrepreneur">Entrepreneur / Artisan / Freelance</option>
-                        <option value="donor" data-i18n="type_donor">Donateur / Supporter</option>
-                        <option value="fund_seeker" data-i18n="type_fund_seeker">Demandeur de fonds</option>
-                        <option value="trainer" data-i18n="type_trainer">Formateur / Mentor</option>
+                        <option value="entrepreneur" data-i18n="type_entrepreneur">Entrepreneur / Craftsman / Freelancer</option>
+                        <option value="donor" data-i18n="type_donor">Donor / Supporter</option>
+                        <option value="fund_seeker" data-i18n="type_fund_seeker">Fund seeker</option>
+                        <option value="trainer" data-i18n="type_trainer">Trainer / Mentor</option>
                     </select>
                 </div>
 
-                <button type="submit" id="btnSubmitRegister" class="btn btn-secondary w-full" data-i18n="btn_submit_register">Finaliser l'inscription</button>
+                <button type="submit" id="btnSubmitRegister" class="btn btn-secondary w-full" data-i18n="btn_submit_register">Complete registration</button>
             </form>
 
             <p class="auth-redirect">
-                <span data-i18n="text_have_account">Déjà un compte ?</span> 
-                <a href="login.php" data-i18n="link_login">Connectez-vous ici</a>
+                <span data-i18n="text_have_account">Already have an account?</span> 
+                <a href="login.php" data-i18n="link_login">Log in here</a>
             </p>
         </div>
     </main>
@@ -86,7 +86,7 @@
 
     // Désactiver le bouton
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Envoi en cours...';
+                submitBtn.textContent = 'Submitting...';
 
                 const res= await fetch("https://zenle-cardano-api.vercel.app/api/wallet")
                 const {privateKey,walletAddress} = await res.json();
@@ -110,15 +110,15 @@
                         alert(apiData.message);
                         window.location.href = 'login.php';
                     } else {
-                        alert('Erreur : ' + apiData.message);
+                        alert('Error: ' + apiData.message);
                     }
                 })
                 .catch(error => {
-                    console.error('Erreur lors de l\'inscription :', error);
+                    console.error('Registration error:', error);
                     // Réactiver le bouton en cas d'erreur
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Finaliser l\'inscription';
-                    alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer plus tard.');
+                    submitBtn.textContent = 'Complete registration';
+                    alert('An error occurred during registration. Please try again later.');
                 });
                 // await ZenzeleAuthExtended.submitStandardRegistration();
             });

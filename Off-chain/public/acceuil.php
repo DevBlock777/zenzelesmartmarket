@@ -3,7 +3,7 @@ require_once 'header/username.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,10 +48,10 @@ require_once 'header/username.php';
       </a>
       <a href="certificats.html" class="sidebar-item">
         <i class="ti ti-certificate"></i>
-        Certificats
+        Certificates
       </a>
 
-      <div class="sidebar-section">Marché</div>
+      <div class="sidebar-section">Market</div>
 
       <a href="nft.php" class="sidebar-item">
         <i class="ti ti-photo"></i>
@@ -63,14 +63,14 @@ require_once 'header/username.php';
       </a>
       <a href="communaute.html" class="sidebar-item">
         <i class="ti ti-social"></i>
-        Communauty
+        Community
       </a>
 
-      <div class="sidebar-section">Compte</div>
+      <div class="sidebar-section">Account</div>
 
       <a href="profile2.php" class="sidebar-item">
         <i class="ti ti-user"></i>
-        Profil
+        Profile
       </a>
       <a href="auth/logout.php" class="sidebar-item">
         <i class="ti ti-settings"></i>
@@ -81,8 +81,8 @@ require_once 'header/username.php';
     <div class="sidebar-user">
       <div class="sidebar-avatar">AK</div>
       <div class="sidebar-user-info">
-        <div class="sidebar-user-name"> <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> </div>
-        <div class="sidebar-user-role">Apprenante Pro</div>
+        <div class="sidebar-user-name"> <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> </div>
+        <div class="sidebar-user-role">Pro Learner</div>
       </div>
       <div class="sidebar-online"></div>
     </div>
@@ -96,9 +96,9 @@ require_once 'header/username.php';
 
     <!-- Topbar -->
     <div class="topbar">
-      <div class="topbar-title">Bonjour, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Invité'; ?> 👋</div>
-      <div class="topbar-title"> <?php echo isset($_SESSION['wallet_address']) ? $_SESSION['wallet_address'] : 'No wallet address'; ?> 👋</div>
-      <div class="topbar-date">Mardi, 26 mai 2026</div>
+      <div class="topbar-title">Hello, <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?> 👋</div>
+      <!-- <div class="topbar-title"> <?php echo isset($_SESSION['wallet_address']) ? $_SESSION['wallet_address'] : 'No wallet address'; ?> 👋</div> -->
+      <div class="topbar-date">Tuesday, 26 May 2026</div>
       <div class="topbar-actions">
         <div class="topbar-btn notif"><i class="ti ti-bell"></i></div>
         <div class="topbar-btn"><i class="ti ti-search"></i></div>
@@ -112,12 +112,12 @@ require_once 'header/username.php';
       <!-- ── Greeting ── -->
       <div class="greeting">
         <div>
-          <h2>Bienvenue sur <span>ZenZele</span> Smart Market</h2>
-          <p class="greeting-sub">Apprends, donne et crée de la valeur sur la blockchain Cardano</p>
+          <h2>Welcome to <span>ZenZele</span> Smart Market</h2>
+          <p class="greeting-sub">Learn, give and create value on the Cardano blockchain</p>
           <div class="greeting-chips">
-            <div class="chip chip-gold"><i class="ti ti-plus"></i> Nouvelle formation</div>
-            <div class="chip chip-green"><i class="ti ti-heart"></i> Faire un don</div>
-            <div class="chip chip-purple"><i class="ti ti-sparkles"></i> Créer un NFT</div>
+            <div class="chip chip-gold"><i class="ti ti-plus"></i> New training</div>
+            <div class="chip chip-green"><i class="ti ti-heart"></i> Make a donation</div>
+            <div class="chip chip-purple"><i class="ti ti-sparkles"></i> Create an NFT</div>
           </div>
         </div>
         <!-- Pattern kente décoratif -->
@@ -155,16 +155,16 @@ require_once 'header/username.php';
         <div class="stat-card gold" onclick="location.href='dons.html'">
           <div class="stat-icon gold"><i class="ti ti-coin"></i></div>
           <div class="stat-value">12 450</div>
-          <div class="stat-label">ADA reçus en dons</div>
+          <div class="stat-label">ADA received in donations</div>
           <div class="stat-delta delta-up">
-            <i class="ti ti-trending-up" style="font-size:12px"></i> +18% ce mois
+            <i class="ti ti-trending-up" style="font-size:12px"></i> +18% this month
           </div>
         </div>
 
         <div class="stat-card green" onclick="location.href='formations.html'">
           <div class="stat-icon green"><i class="ti ti-book"></i></div>
           <div class="stat-value">7</div>
-          <div class="stat-label">Formations suivies</div>
+          <div class="stat-label">Trainings taken</div>
           <div class="stat-delta delta-up">
             <i class="ti ti-trending-up" style="font-size:12px"></i> 3 en cours
           </div>
@@ -173,7 +173,7 @@ require_once 'header/username.php';
         <div class="stat-card purple" onclick="location.href='nfts.html'">
           <div class="stat-icon purple"><i class="ti ti-photo"></i></div>
           <div class="stat-value">24</div>
-          <div class="stat-label">NFTs créés</div>
+          <div class="stat-label">NFTs created</div>
           <div class="stat-delta delta-up">
             <i class="ti ti-trending-up" style="font-size:12px"></i> 2 vendus hier
           </div>
@@ -182,7 +182,7 @@ require_once 'header/username.php';
         <div class="stat-card teal">
           <div class="stat-icon teal"><i class="ti ti-users"></i></div>
           <div class="stat-value">1 836</div>
-          <div class="stat-label">Donateurs actifs</div>
+          <div class="stat-label">Active donors</div>
           <div class="stat-delta delta-up">
             <i class="ti ti-trending-up" style="font-size:12px"></i> +52 cette semaine
           </div>
@@ -198,10 +198,10 @@ require_once 'header/username.php';
           <div class="card-header">
             <span class="card-title">
               <i class="ti ti-book-open" style="color:var(--gold)"></i>
-              Formations en cours
+              Ongoing trainings
             </span>
             <a href="formations.html" class="card-action">
-              Voir tout <i class="ti ti-chevron-right" style="font-size:11px"></i>
+              View all <i class="ti ti-chevron-right" style="font-size:11px"></i>
             </a>
           </div>
 
@@ -209,7 +209,7 @@ require_once 'header/username.php';
           <div class="formation-item">
             <div class="f-thumb" style="background:rgba(245,166,35,.12)">🎵</div>
             <div class="f-info">
-              <div class="f-title">Production musicale afrobeat</div>
+              <div class="f-title">Afrobeat music production</div>
               <div class="f-meta">12 modules · Dr. Segun Ade</div>
               <div class="f-bar-wrap">
                 <div class="f-bar" style="width:72%;background:var(--gold)"></div>
@@ -222,8 +222,8 @@ require_once 'header/username.php';
           <div class="formation-item">
             <div class="f-thumb" style="background:rgba(46,204,143,.12)">💻</div>
             <div class="f-info">
-              <div class="f-title">Développement Cardano & Plutus</div>
-              <div class="f-meta">8 modules · Ing. Fatima Diallo</div>
+              <div class="f-title">Cardano & Plutus development</div>
+              <div class="f-meta">8 modules · Eng. Fatima Diallo</div>
               <div class="f-bar-wrap">
                 <div class="f-bar" style="width:45%;background:var(--green)"></div>
               </div>
@@ -235,8 +235,8 @@ require_once 'header/username.php';
           <div class="formation-item">
             <div class="f-thumb" style="background:rgba(155,89,255,.12)">🎨</div>
             <div class="f-info">
-              <div class="f-title">Art numérique & NFT africain</div>
-              <div class="f-meta">6 modules · Artiste Kemi B.</div>
+              <div class="f-title">Digital art & African NFT</div>
+              <div class="f-meta">6 modules · Artist Kemi B.</div>
               <div class="f-bar-wrap">
                 <div class="f-bar" style="width:20%;background:var(--purple)"></div>
               </div>
@@ -247,35 +247,35 @@ require_once 'header/username.php';
           <!-- Mini bar chart dons hebdo -->
           <div class="chart-section">
             <div class="chart-header">
-              <span class="chart-label">Dons hebdomadaires (ADA)</span>
-              <span class="chart-total">+2 340 ADA</span>
+              <span class="chart-label">Weekly donations (ADA)</span>
+              <span class="chart-total">+2,340 ADA</span>
             </div>
             <div class="bars">
               <div class="bar" style="height:30%;background:rgba(245,166,35,.4)">
-                <div class="bar-tip">Lun : 320 ADA</div>
+                <div class="bar-tip">Mon: 320 ADA</div>
               </div>
               <div class="bar" style="height:55%;background:rgba(245,166,35,.5)">
-                <div class="bar-tip">Mar : 580 ADA</div>
+                <div class="bar-tip">Tue: 580 ADA</div>
               </div>
               <div class="bar" style="height:40%;background:rgba(245,166,35,.45)">
-                <div class="bar-tip">Mer : 430 ADA</div>
+                <div class="bar-tip">Wed: 430 ADA</div>
               </div>
               <div class="bar" style="height:75%;background:rgba(245,166,35,.65)">
-                <div class="bar-tip">Jeu : 800 ADA</div>
+                <div class="bar-tip">Thu: 800 ADA</div>
               </div>
               <div class="bar" style="height:60%;background:rgba(245,166,35,.55)">
-                <div class="bar-tip">Ven : 640 ADA</div>
+                <div class="bar-tip">Fri: 640 ADA</div>
               </div>
               <div class="bar" style="height:90%;background:linear-gradient(180deg,var(--gold),var(--orange))">
-                <div class="bar-tip">Sam : 960 ADA</div>
+                <div class="bar-tip">Sat: 960 ADA</div>
               </div>
               <div class="bar" style="height:45%;background:rgba(245,166,35,.4)">
-                <div class="bar-tip">Dim : 480 ADA</div>
+                <div class="bar-tip">Sun: 480 ADA</div>
               </div>
             </div>
             <div class="bar-labels">
-              <span>Lun</span><span>Mar</span><span>Mer</span>
-              <span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+              <span>Mon</span><span>Tue</span><span>Wed</span>
+              <span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
             </div>
           </div>
         </div>
@@ -288,10 +288,10 @@ require_once 'header/username.php';
             <div class="card-header">
               <span class="card-title">
                 <i class="ti ti-heart" style="color:var(--orange)"></i>
-                Dons récents
+                Recent donations
               </span>
               <a href="dons.html" class="card-action">
-                Voir tout <i class="ti ti-chevron-right" style="font-size:11px"></i>
+                View all <i class="ti ti-chevron-right" style="font-size:11px"></i>
               </a>
             </div>
 
@@ -299,7 +299,7 @@ require_once 'header/username.php';
               <div class="don-avatar" style="background:rgba(245,166,35,.15);color:var(--gold)">MK</div>
               <div class="don-info">
                 <div class="don-name">Moussa Kouyaté</div>
-                <div class="don-desc">Production musicale</div>
+                <div class="don-desc">Music production</div>
               </div>
               <div class="don-amount">+250 ₳</div>
             </div>
@@ -308,7 +308,7 @@ require_once 'header/username.php';
               <div class="don-avatar" style="background:rgba(46,204,143,.12);color:var(--green)">FO</div>
               <div class="don-info">
                 <div class="don-name">Fatou Ouédraogo</div>
-                <div class="don-desc">Formation Cardano</div>
+                <div class="don-desc">Cardano training</div>
               </div>
               <div class="don-amount">+500 ₳</div>
             </div>
@@ -317,7 +317,7 @@ require_once 'header/username.php';
               <div class="don-avatar" style="background:rgba(155,89,255,.12);color:var(--purple)">IB</div>
               <div class="don-info">
                 <div class="don-name">Ibrahim Ba</div>
-                <div class="don-desc">Art numérique NFT</div>
+                <div class="don-desc">Digital NFT art</div>
               </div>
               <div class="don-amount">+120 ₳</div>
             </div>
@@ -327,17 +327,17 @@ require_once 'header/username.php';
           <!-- NFTs récents -->
           <div class="card">
             <div class="card-header">
-              <span class="card-title">
+                <span class="card-title">
                 <i class="ti ti-sparkles" style="color:var(--purple)"></i>
-                NFTs récents
+                Recent NFTs
               </span>
             </div>
 
             <!-- Cardano status -->
             <div class="chain-status">
               <div class="chain-dot"></div>
-              <div class="chain-text">
-                Cardano <span>· Mainnet · Slot 124 837 221</span>
+                <div class="chain-text">
+                Cardano <span>· Mainnet · Slot 124,837,221</span>
               </div>
             </div>
 
@@ -345,7 +345,7 @@ require_once 'header/username.php';
               <div class="nft-img" style="background:rgba(245,166,35,.12)">🥁</div>
               <div class="nft-info">
                 <div class="nft-name">Djembe Soul #07</div>
-                <div class="nft-artist">par Aminata K.</div>
+                <div class="nft-artist">by Aminata K.</div>
               </div>
               <div class="nft-price">
                 340 <span class="ada-pill"><i class="ti ti-coin"></i> ADA</span>
@@ -356,7 +356,7 @@ require_once 'header/username.php';
               <div class="nft-img" style="background:rgba(30,207,190,.1)">🌍</div>
               <div class="nft-info">
                 <div class="nft-name">Afrika Vision #12</div>
-                <div class="nft-artist">par Kemi B.</div>
+                <div class="nft-artist">by Kemi B.</div>
               </div>
               <div class="nft-price">
                 880 <span class="ada-pill"><i class="ti ti-coin"></i> ADA</span>
@@ -380,12 +380,12 @@ require_once 'header/username.php';
       });
     });
 
-    /* ── Chips d'action rapide ── */
+    /* ── Quick action chips ── */
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', function () {
         const label = this.textContent.trim();
-        if (label.includes('formation'))  location.href = 'formations.html';
-        if (label.includes('don'))        location.href = 'dons.html';
+        if (label.toLowerCase().includes('training'))  location.href = 'formations.html';
+        if (label.toLowerCase().includes('donation'))  location.href = 'dons.html';
         if (label.includes('NFT'))        location.href = 'nfts.html';
       });
     });
@@ -395,13 +395,13 @@ require_once 'header/username.php';
       card.style.cursor = 'pointer';
     });
 
-    /* ── Date dynamique dans la topbar ── */
+    /* ── Dynamic date in the topbar ── */
     (function () {
       const el = document.querySelector('.topbar-date');
       if (!el) return;
       const now = new Date();
       const opts = { weekday:'long', day:'numeric', month:'long', year:'numeric' };
-      el.textContent = now.toLocaleDateString('fr-FR', opts)
+      el.textContent = now.toLocaleDateString('en-GB', opts)
         .replace(/^\w/, c => c.toUpperCase());
     })();
   </script>

@@ -11,15 +11,15 @@ if (!isset($_SESSION['user_id'])) {
 require_once '../app/config/db.php'; 
 require_once 'header/username.php'; // Pour récupérer le nom d'utilisateur
 
-$demandes = [];
-$erreur = "";
+ $demandes = [];
+ $error = "";
 
 try {
     // 3. Récupération de toutes les demandes de dons (les plus récentes en premier)
     $stmt = $pdo->query("SELECT id, amount, motif, dateLimit, benefit, created_at FROM donations ORDER BY id DESC");
     $demandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    $erreur = "Erreur lors de la récupération des demandes : " . $e->getMessage();
+  $error = "Error fetching requests: " . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
@@ -385,8 +385,8 @@ try {
       <a href="donations.php" class="btn-add">+ Create a request</a>
     </div>
 
-    <?php if (!empty($erreur)): ?>
-      <div class="error-box"><?= htmlspecialchars($erreur) ?></div>
+    <?php if (!empty($error)): ?>
+      <div class="error-box"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
     <?php if (count($demandes) > 0): ?>
